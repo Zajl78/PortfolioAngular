@@ -1,0 +1,42 @@
+<app-menu></app-menu>
+
+<div class="row-mt-5">
+    <div class="col-md-4 pt-4 mx-auto">
+        <form [formGroup]="form" id="crear" >
+            <div class="form-group">
+                <label for="tecnologia">Tecnología</label>
+                <input type="tecnologia" formControlName="tecnologia"  
+                [ngClass]="{'is-invalid':Tecnologia?.errors && Tecnologia?.touched, 'is-valid':!Tecnologia?.errors && Tecnologia?.touched}" 
+                class="form-control" id="tecnologia" [(ngModel)]="tecnologia.tecnologia" required>
+                <div *ngIf="Tecnologia?.errors && Tecnologia?.touched">
+                    <p *ngIf="Tecnologia?.hasError('required')" class="text-danger">
+                        El Nombre de la Tecnología es requerida</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="porcentaje">Porcentaje de Dominio</label>
+                <input type="porcentaje" formControlName="porcentaje"  
+                [ngClass]="{'is-invalid':Porcentaje?.errors && Porcentaje?.touched, 'is-valid':!Porcentaje?.errors && Porcentaje?.touched}" 
+                class="form-control" id="porcentaje" [(ngModel)]="tecnologia.porcentaje" required>
+                <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
+                    <p *ngIf="Porcentaje?.hasError('required')" class="text-danger">
+                        El Porcentaje de Dominio es requerido</p>
+                </div>
+            </div> 
+            <div class="form-group">
+                    <label for="logo">Logo</label>
+                    <input type="logo" formControlName="logo"  
+                    [ngClass]="{'is-invalid':Logo?.errors && Logo?.touched, 'is-valid':!Logo?.errors && Logo?.touched}" 
+                    class="form-control" id="logo" [(ngModel)]="tecnologia.logo" required>
+                        <div *ngIf="Logo?.errors && Logo?.touched">
+                            <p *ngIf="Logo?.hasError('required')" class="text-danger">
+                                El Logo es requerido</p>
+                            <br>
+                        </div>
+            </div>
+            <form [formGroup]="form" class="m-5" (ngSubmit)="onUpdate($event)">
+                <button class="btn btn-outline-success btn-block">Actualizar</button>
+            </form>
+        </form>
+    </div>
+</div>

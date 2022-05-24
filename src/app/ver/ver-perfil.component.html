@@ -1,0 +1,80 @@
+
+
+<div class="container d-flex justify-content-center mt-4">
+<ul style="list-style-type: none" class="items-list">
+    <li *ngFor="let perfil of perfil"> 
+<div class="card mb-5" style="max-width: 90%; background-color: #c6cee9; border: none;">
+    <div class="row" style="max-width: 100%;">
+        
+    <div class="col-4">
+
+        <div class="card mb-2" style="max-width: 100%; background-color: #c6cee9; border: none;">
+            <div class="col-md-12">
+            <img id="profil" [src]="perfil.fotoPerfil" alt="Foto de Perfil">         
+            <a routerLink="/editar-perfil/{{perfil.id}}" class="btn-right" *ngIf="isAdmin"><i class="fa-solid fa-camera"></i></a>
+            </div>
+            <div class="card-body">
+               
+                <div class="col">
+                    <div class="row"> 
+                        <div class="col-7"></div>
+                        <div class="col-1">
+                            <div class="data-control">
+                                <div class="btn-edit" *ngIf="isAdmin">
+                                    <a routerLink="/editar-perfil/{{perfil.id}}" class="btn-right"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-1" >
+                            <div class="data-control">
+                                <div class="btn-edit" *ngIf="isAdmin">
+                                    <a class="btn-right" (click)="borrar(perfil.id)"><i class="fa-regular fa-trash-can"></i></a>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-5" class="name"><p class="profil">{{perfil.puesto}}<br>
+                            {{perfil.fullName}}</p>
+                            </div>
+                    </div>
+                </div>
+           
+            </div>
+        </div>
+        
+        
+          
+    </div>
+      <div class="col-8">
+        <div class="card-body">
+            <div class="row" style="padding-bottom: 10px;"> 
+                <div class="col-10"></div> 
+                <div class="col-1">
+                    <div class="data-control">
+                        <div class="btn-edit" *ngIf="isAdmin">
+                            <a routerLink="/editar-perfil/{{perfil.id}}" class="btn-right"><i class="fa-regular fa-pen-to-square"></i></a>
+                            </div>
+                    </div>
+                </div>
+                
+                <div class="col-1" >
+                    <div class="data-control">
+                        <div class="btn-edit" *ngIf="isAdmin">
+                            <a class="btn-right" (click)="borrar(perfil.id)"><i class="fa-regular fa-trash-can"></i></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <p> {{perfil.acerca_de_mi}}</p>
+        </div>
+       
+      </div>
+    </div>
+
+  </div>
+</li>
+</ul>
+</div>
+

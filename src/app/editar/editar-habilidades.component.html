@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+
+<div class="row-mt-5">
+    <div class="col-md-4 pt-4 mx-auto">
+        <form [formGroup]="form" id="crear" >
+            <div class="form-group">
+                <label for="habilidad">Habilidad</label>
+                <input type="habilidad" formControlName="habilidad"  
+                [ngClass]="{'is-invalid':Habilidad?.errors && Habilidad?.touched, 'is-valid':!Habilidad?.errors && Habilidad?.touched}" 
+                class="form-control" id="habilidad" [(ngModel)]="habilidad.habilidad" required>
+                <div *ngIf="Habilidad?.errors && Habilidad?.touched">
+                    <p *ngIf="Habilidad?.hasError('required')" class="text-danger">
+                        La Habilidad es requerida</p>
+                </div>
+            </div>
+            
+            <form [formGroup]="form" class="m-5" (ngSubmit)="onUpdate($event)">
+                <button class="btn btn-outline-success btn-block">Actualizar</button>
+            </form>
+        </form>
+    </div>
+</div>

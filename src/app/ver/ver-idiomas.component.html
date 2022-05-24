@@ -1,0 +1,61 @@
+<!--Idiomas-->
+<div class="card border-primary mb-2">
+    <div class="card-titles" >
+        <div class="row" id="flush-headingLang1">
+            <div class="col-11">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseLang1" aria-expanded="false" aria-controls="flush-collapseLang1">
+                <h2>Idiomas</h2></button>
+            </div>
+            <div class="col-1">
+                <div class="btn-edit" *ngIf="isAdmin">
+                <a routerLink="/nuevo-idioma"  class="btn-right"><i class="fa-solid fa-circle-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="flush-collapseLang1" class="accordion-collapse collapse" aria-labelledby="flush-headingLang1" data-bs-parent="#accordionFlushIdioma">
+            <div class="accordion-body">
+                <ul style="list-style-type: none" class="items-list">
+                <li *ngFor="let idioma of idiomas">
+                    <div class="data-container">
+                        <div class="list-info">
+                            <div class="row">
+                                <div class="col-10">
+                                <p>{{idioma.nombre}}</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-secondary progress-bar progress-bar-striped progress-bar-animated active" role="progressbar" attr.aria-valuenow="{{idioma.nivel}}" aria-valuemin="0%" aria-valuemax="100%" style.width="{{idioma.nivel}}"></div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row"> 
+                                        
+                                        <div class="col-1">
+                                            <div class="data-control">
+                                                <div class="btn-edit" *ngIf="isAdmin">
+                                                    <a routerLink="/editar-idiomas/{{idioma.id}}" class="btn-right"><i class="fa-regular fa-pen-to-square"></i></a>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-1" >
+                                            <div class="data-control">
+                                                <div class="btn-edit" *ngIf="isAdmin">
+                                                    <a class="btn-right" (click)="borrar(idioma.id)"><i class="fa-regular fa-trash-can"></i></a>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,41 @@
+<!--Menú Superior-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container-fluid">
+    <!--Argentina programa Icons-->
+    <a class="navbar-brand" href="https://argentinaprograma.inti.gob.ar"><img
+        src="//argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1638313837/APLogo-20-20.png"
+        alt="argpprod" width="90" height="55" class="d-inline-block align-text-center"><span
+        class=idLogo>#YoProgramo</span></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <span id="redes">
+        <a class="navbar-brand" href="https://www.facebook.com/zulyma.jeschkelopez"><i
+            class="fa-brands fa-facebook"></i></a>
+        <a class="navbar-brand" href="https://www.linkedin.com/in/zulyma-jeschke-5b92b499"><i
+            class="fa-brands fa-linkedin"></i></a>
+        <a class="navbar-brand" href="https://github.com/Zajl78"><i class="fa-brands fa-github"></i></a>
+      </span>
+      <ul class="navbar-nav" style="margin-left: auto;">
+        <!-- <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link" routerLink='/index'><i class="fas fa-home"></i> Home</a>
+        </li> -->
+        <li class="nav-item" >
+          <a class="nav-link" routerLink='/portfolio'><i class="fa-solid fa-clipboard-list"></i> Portfolio</a>
+        </li>
+        <li class="nav-item" *ngIf="!(isLogged)">
+          <a class="nav-link" routerLink='/iniciar-sesion'><i class="fa-solid fa-right-to-bracket"></i> Iniciar
+            Sesión</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
+          <a class="nav-link"><i class="fa-solid fa-door-open"></i> Cerrar
+            Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

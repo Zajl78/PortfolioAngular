@@ -1,0 +1,219 @@
+{
+        "nombre": "Zulyma",
+        "apellido": "Jeschke López",
+        "dni": 95974099,
+        "telefono": 2996282420,
+        "correo": "zulymajeschke@gmail.com",
+        "perfil": "assets/Imagenes/Perfil.jpg",
+        "acerca_de_mi": "Ingeniero de petróleo con mas de 10 años de trayectoria profesional en la industria del petróleo y gas, en las áreas de reservorio, confiabilidad, corrosión y mantenimiento mayor. Con conocimientos en seguridad e higiene laboral. Actualmente formandome en el área desarrollo web tanto frontend como backend.",
+        "puesto": "Full Stack Developer Jr.",
+
+        "direccion": {
+            "calle": "Doctor Federico Leloir 929",
+            "ciudad": "Neuquén Capital",
+            "provincia": "Neuquén",
+            "pais": "Argentina",
+            "codigo_postal": 8300
+        },
+
+        "experiencias": [{
+            "empresa": "PDVSA",
+            "lugar": "Campo El Furrial - Monagas-Venezuela",
+            "desde": "Nov 2011", 
+            "hasta": "Feb 2019", 
+            "puesto": "Ingeniero de Reservorio",
+            "imgLogo":"assets/Imagenes/Logo PDVSA.png",
+            "descripcion": "Realizar seguimiento a la ejecución de los planes de producción. Realizar seguimiento  y monitoreo a yacimientos de crudo, generando recomendaciones operativas con el fin de optimizar la recuperación. Buscar oportunidades y proponer reparaciones a pozos. Monitoreo de la inyección y de los volúmenes necesarios para producir crudo de manera óptima, permitiendo el aumento y sostenimiento de la energía del yacimiento. Seguimiento en campo las operaciones de corrida de registros eléctricos (wireline), coiled tubing, slickline. Seguimiento de la incidencia de la inyección en la producción de pozos vecinos y su optimización."
+            
+            },
+            {
+            "empresa": "PDVSA", 
+            "lugar": "Campo El Furrial - Monagas-Venezuela",
+            "desde": "Oct 2009", 
+            "hasta": "Nov 2011",
+            "puesto": "Ingeniero de Confiabilidad",
+            "imgLogo":"assets/Imagenes/Logo PDVSA.png",
+            "descripcion": "Identificar problemas que afectan la confiabilidad de los procesos (físicos, humanos y procedimentales), a través de métodos analíticos, estadísticas e inspecciones de sitios. Investigar la ocurrencia de eventos aleatorios indeseables dentro de procesos e instalaciones mediante la aplicación de metodologías Análisis Causa Raíz (ACR). Realizar y analizar los indicadores de confiabilidad de los procesos, instalaciones y equipos, basados en la data almacenada de los reportes diarios realizados por operaciones, detectando desviaciones oportunamente y evaluar la efectividad de acciones preventivas y correctivas."
+        
+            },
+            {
+            "empresa": "PDVSA",
+            "lugar": "Campo El Furrial - Monagas-Venezuela",
+            "desde": "May 2006", 
+            "hasta": "Oct 2009", 
+            "puesto": "Ingeniero de Corrosión",
+            "imgLogo":"assets/Imagenes/Logo PDVSA.png",
+            "descripcion": "Seguimiento en campo de la inyección de tratamiento químico anticorrosivo en gasoductos, oleoductos, líneas de flujo y equipos. Estudio de Nuevas Tecnologías de Inyección y Monitoreo de corrosión interna en instalaciones de crudo y agua, a través de la ejecución de protocolos de prueba en laboratorio y en campo. Modelado de las tasas de corrosión en pozos, gasoductos y plantas. Seguimiento de indicadores de gestión."
+               
+            },
+            {
+            "empresa": "PDVSA",
+            "lugar": "Campo El Furrial - Monagas-Venezuela",
+            "desde": "Jun 2005", 
+            "hasta": "May 2006", 
+            "puesto": "Supervisor de Campo de Mantenimiento de Equipos Estásticos", 
+            "imgLogo":"assets/Imagenes/Logo PDVSA.png",
+            "descripcion": "Definir el plan de ejecución y objetivos, de proyectos de mantenimiento a tanques, separadores, líneas de flujo. Realizar seguimiento a la planificación y ejecución de los proyectos de mantenimiento a tanques, separadores, líneas de flujo. Realizar seguimiento y controlar los recursos asignados a los proyectos. Estimar los ingresos mensuales en función a los avances de los proyectos. Mantener comunicación efectiva con el cliente. Interactuar con las empresas de servicios y clientes internos en la planificación de los trabajos y validación de los servicios ejecutados. Administrar contratos de servicios, emisión de especificaciones técnicas y cómputos métricos de los procesos de mantenimiento."
+                
+            }
+            ],
+        
+        "formacion": [
+        {
+            "tipo": "Universitaria",
+            "instituto": "Universidad de Oriente (UDO)", 
+            "lugar": "Monagas Venezuela",
+            "carrera": "Ingeniero de Petróleo", 
+            "desde": "1996", 
+            "hasta": "2005",
+            "imgLogo":"assets/Imagenes/Logo UDO.png",
+            "observacion":"1998-1999: Estudios paralizados por 1 año para estudiar ingles en Estados Unidos. 2003: Culminación materias. 2003-2005: Búsqueda y realización de pasantías, elaboración de tesis y entrega de título oficial."
+            
+        },
+        
+        {
+            "tipo": "Diplomatura",
+            "institucion": "PDVSA",
+            "lugar": "Monagas Venezuela", 
+            "carrera": "Diplomado en Levantamiento Artificial por Gas", 
+            "desde": "1996", 
+            "hasta": "2005",
+            "imgLogo":"assets/Imagenes/Logo PDVSA.png",
+            "observacion":"adhfghearg"
+        },
+        
+        {
+            "tipo": "Diplomatura",
+            "institucion": "Fundación Ilarte",
+            "lugar": "Argentina",
+            "carrera": "Diplomado en Seguridad e Higiene Laboral", 
+            "desde": "1996", 
+            "hasta": "2005",
+            "imgLogo":"assets/Imagenes/Logo Fundación Ilarte.png",
+            "observacion":"sdfakgk"
+        }
+        ],
+
+        "cursos": [{
+            "nombre": "Diplomatura",
+            "area": "Petróleo y Gas",
+            "instituto": "Fundación Ilarte",
+            "lugar": "Argentina",
+            "duracion": "Diplomado en Seguridad e Higiene Laboral", 
+            "desde": "1996", 
+            "hasta": "2005",
+            "imgLogo":"assets/Imagenes/Logo Fundación Ilarte.png",
+            "observacion":"sdfakgk"
+        },
+        {
+            "nombre": "Diplomatura",
+            "area": "Petróleo y Gas",
+            "instituto": "Fundación Ilarte",
+            "lugar": "Argentina",
+            "duracion": "Diplomado en Seguridad e Higiene Laboral", 
+            "desde": "1996", 
+            "hasta": "2005",
+            "imgLogo":"assets/Imagenes/Logo Fundación Ilarte.png",
+            "observacion":"sdfakgk"
+        },
+        {
+            "nombre": "Diplomatura",
+            "area": "Petróleo y Gas",
+            "instituto": "Fundación Ilarte",
+            "lugar": "Argentina",
+            "duracion": "Diplomado en Seguridad e Higiene Laboral", 
+            "desde": "1996", 
+            "hasta": "2005",
+            "imgLogo":"assets/Imagenes/Logo Fundación Ilarte.png",
+            "observacion":"sdfakgk"
+        }
+
+        ],
+        
+
+        "habilidades": [
+        "Planificación y supervisión de trabajos a pozos.",		
+		"Gestión de Proyectos civiles y petroleros.",		
+		"Gestión de personal de acuerdo con sus habilidades y competencias.",				
+        "Ejecución de proyectos y asignación de tareas relacionadas al puesto.",		
+		"Adaptabilidad y capacidad de trabajar bajo presión.",				
+		"Facilidad de trabajo en equipo, comunicación eficiente con los colegas.",		
+		"Análisis de riesgos: seguridad, higiene y ambiente en las operaciones."		
+		],
+
+        "tecnologias": [
+            {
+                "nombre": "OFM",
+                "nivel": "100%"
+            },
+            {
+                "nombre": "WellFlo",
+                "nivel": "75%"
+            },
+            {
+                "nombre": "EMERAUDE",
+                "nivel": "50%"
+            },
+            {
+                "nombre": "SAHARA",
+                "nivel": "75%"
+            },
+            {
+                "nombre": "Microsoft Office",
+                "nivel": "100%"
+            },
+            {
+                "nombre": "Git/GitHub",
+                "nivel": "50%"
+            },
+            {
+                "nombre": "Html",
+                "nivel": "60%"
+            },
+            {
+                "nombre": "CSS",
+                "nivel": "60%"
+            },
+            {
+                "nombre": "Bootstrap",
+                "nivel": "60%"
+            },
+            {
+                "nombre": "Angular",
+                "nivel": "50%"
+            },
+            {
+                "nombre": "SpringBoot",
+                "nivel": "50%"
+            },
+            {
+                "nombre": "NetBeans",
+                "nivel": "50%"
+            },
+            {
+                "nombre": "Postman",
+                "nivel": "75%"
+            },
+            {
+                "nombre": "MySQL",
+                "nivel": "60%"
+            }
+        ],
+
+        "idiomas": [
+            
+            {
+                "nombre": "Ingles",
+                "nivel": "90%"
+            }
+        ],
+
+        "proyectos": [
+            {
+            "nombre": "Diplomatura", 
+            "desde": "1996", 
+            "hasta": "2005",
+            "descripcion":"sdfakgk"
+            }
+        ]
+    }

@@ -1,0 +1,57 @@
+
+<!--Contacto-->
+<div class="row">
+    <div class="col">
+        <p><button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseWidthExample" aria-expanded="false"
+                aria-controls="collapseWidthExample">Contacto</button></p>
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+            <div class="card card-body" style="width: 350px; margin:15px">
+                <ul style="list-style-type: none" class="items-list">
+                    <li *ngFor="let contacto of contacto">
+                        <div class="col">
+                            <div class="row" style="margin-left: auto;">
+                                <div class="col-10"></div>
+                                <div class="col-1">
+                                    <div class="data-control">
+                                        <div class="btn-edit" *ngIf="isAdmin">
+                                            <a routerLink="/editar-contacto/{{contacto.id}}" class="btn-right"><i class="fa-regular fa-pen-to-square"></i></a>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="data-control">
+                                        <div class="btn-edit" *ngIf="isAdmin">
+                                            <a class="btn-right" (click)="borrar(contacto.id)"><i class="fa-regular fa-trash-can"></i></a>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class=col-3>
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </div>
+                                <div class=col-9>
+                                    <p>{{contacto.direccion}}</p>
+                                </div>
+                                <div class=col-3>
+                                    <i class="fa-solid fa-at"></i>
+                                </div>
+                                <div class=col-9>
+                                    <p>{{contacto.email}}</p>
+                                </div>
+                                <div class=col-3>
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div class=col-9>
+                                    <p>{{contacto.telefono}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

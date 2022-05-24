@@ -1,0 +1,52 @@
+<app-menu></app-menu>
+
+<div class="row-mt-5">
+    <div class="col-md-4 pt-4 mx-auto">
+        <form [formGroup]="formEditar" id="crear">
+            <div class="form-group">
+                <label for="fullName">Nombre y Apellido</label>
+                <input type="fullName" formControlName="fullName"   
+                [ngClass]="{'is-invalid':FullName?.errors && FullName?.touched, 'is-valid':!FullName?.errors && FullName?.touched}" 
+                class="form-control" id="fullName" [(ngModel)]="perfil.fullName" required>
+                <div *ngIf="FullName?.errors && FullName?.touched">
+                    <p *ngIf="FullName?.hasError('required')" class="text-danger">
+                        El Nombre completo es requerido</p> 
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="puesto">Puesto</label>
+                <input type="puesto" formControlName="puesto" 
+                [ngClass]="{'is-invalid':Puesto?.errors && Puesto?.touched, 'is-valid':!Puesto?.errors && Puesto?.touched}"   
+                class="form-control" id="puesto" [(ngModel)]="perfil.puesto" required>
+                <div *ngIf="Puesto?.errors && Puesto?.touched">
+                    <p *ngIf="Puesto?.hasError('required')" class="text-danger">
+                        El Puesto es requerido</p> 
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="acerca_de_mi">Breve Descripción del Perfil Profesional</label>
+                <input type="acerca_de_mi" formControlName="acerca_de_mi"  
+                [ngClass]="{'is-invalid':Acerca_de_mi?.errors && Acerca_de_mi?.touched, 'is-valid':!Acerca_de_mi?.errors && Acerca_de_mi?.touched}" 
+                class="form-control" id="acerca_de_mi" [(ngModel)]="perfil.acerca_de_mi" required>
+                <div *ngIf="Acerca_de_mi?.errors && Acerca_de_mi?.touched">
+                    <p *ngIf="Acerca_de_mi?.hasError('required')" class="text-danger">
+                        Una Breve Descripción Profesional es requerida</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fotoPerfil">Foto de Perfil</label>
+                <input type="fotoPerfil" formControlName="fotoPerfil"  
+                [ngClass]="{'is-invalid':FotoPerfil?.errors && FotoPerfil?.touched, 'is-valid':!FotoPerfil?.errors && FotoPerfil?.touched}" 
+                class="form-control" id="fotoPerfil" [(ngModel)]="perfil.fotoPerfil" required>
+                    <div *ngIf="FotoPerfil?.errors && FotoPerfil?.touched">
+                        <p *ngIf="FotoPerfil?.hasError('required')" class="text-danger">
+                            La Foto de Perfil es requerida</p>
+                    </div>
+            </div>
+           
+            <form [formGroup]="formEditar" class="m-5" (ngSubmit)="onUpdate($event)">
+                <button class="btn btn-outline-success btn-block">Actualizar</button>
+            </form>
+        </form>
+    </div>
+</div>
