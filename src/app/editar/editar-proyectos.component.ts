@@ -14,11 +14,11 @@ import { TokenService } from '../servicios/token.service';
 })
 export class EditarProyectosComponent implements OnInit {
 
-  form:FormGroup;
+  form: FormGroup;
   proyecto: any;
   isLogged = false;
   isLoginFail = false;
-  roles: string[]=[];
+  roles: string[] = [];
 
   constructor(private proyectosService: ProyectosService,
     private autenticacionService: AutenticacionService,
@@ -28,15 +28,17 @@ export class EditarProyectosComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-      this.form = this.formBuilder.group(
-        {
-          proyecto: ['', Validators.required],
-          descripcion: ['', Validators.required],
-          fecha: ['', Validators.required]
-      
+    this.form = this.formBuilder.group(
+      {
+        proyecto: ['', Validators.required],
+        descripcion: ['', Validators.required],
+        fecha: ['', Validators.required],
+        imagen: ['', Validators.required],
+        link: ['', Validators.required]
+
       })
 
-     }
+  }
 
   ngOnInit(): void {
 
@@ -50,65 +52,75 @@ export class EditarProyectosComponent implements OnInit {
 
     this.proyectosService.detalles(id).subscribe(
       data => {
-      
-      this.proyecto=data;
+
+        this.proyecto = data;
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/']);
-        
-            
-           
-        }  
-        );
-      
-        
-      }  
 
-  get Proyecto(){
+
+
+      }
+    );
+
+
+  }
+
+  get Proyecto() {
 
     return this.form.get('proyecto');
   }
-  get Descripcion(){
+  get Descripcion() {
 
     return this.form.get('descripcion');
   }
-  get Fecha(){
+  get Fecha() {
 
     return this.form.get('fecha');
   }
-  
+  get Imagen() {
+
+    return this.form.get('imagen');
+  }
+  get Link() {
+
+    return this.form.get('link');
+  }
+
   onUpdate(event: Event): void {
     event.preventDefault;
-  
+
     const id = this.activatedRoute.snapshot.params['id'];
-  
-    this.proyectosService.editar(id, this.form.value).subscribe (data => { 
-  
-    this.isLogged=true;
-    this.isLoginFail=false;
-    console.log("DATA: " + JSON.stringify(data));
-  
-    this.toastr.success('Proyecto actualizado', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-  });
-   this.router.navigate(['/portfolio']);
-  },
-  err => {
-  this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-  });
-  this.router.navigate(['/']);
-  
-      
-     
-  }  
-  );
-  
+
+    this.proyectosService.editar(id, this.form.value).subscribe(data => {
+
+      this.isLogged = true;
+      this.isLoginFail = false;
+      console.log("DATA: " + JSON.stringify(data));
+
+      this.toastr.success('Proyecto actualizado', 'Ok', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/portfolio']);
+    },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/editar-proyectos']);
+
+
+
+      }
+    );
+
   }
-  
-  }
-    
-    
-   
-  
-  
+
+}
+
+
+
+

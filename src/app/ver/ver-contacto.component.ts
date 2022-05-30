@@ -13,37 +13,37 @@ import { TokenService } from '../servicios/token.service';
 })
 
 export class VerContactoComponent implements OnInit {
-  contacto: any[]=[];
+  contacto: any[] = [];
   roles: string[];
   isAdmin = false;
 
- constructor(private datosPortfolio:ContactoService,
-  private toastr: ToastrService,
-  private router: Router,
-  private tokenService: TokenService) { }
+  constructor(private datosPortfolio: ContactoService,
+    private toastr: ToastrService,
+    private router: Router,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.cargarContacto();
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach(rol => {
-      if(rol === 'ROLE_ADMIN'){
+      if (rol === 'ROLE_ADMIN') {
         this.isAdmin = true;
       }
     });
   }
-    cargarContacto():void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+  cargarContacto(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data => {
       console.log("contacto" + JSON.stringify(data));
-      this.contacto=data;
+      this.contacto = data;
     });
-  
+
   }
 
   borrar(id: number) {
 
     /* alert('borrar el ' + id); */
-      
-      this.datosPortfolio.borrar(id).subscribe(data => {
+
+    this.datosPortfolio.borrar(id).subscribe(data => {
       this.toastr.success('Contacto Eliminado', 'Ok', {
         timeOut: 3000, positionClass: 'toast-top-center'
       });
@@ -57,7 +57,7 @@ export class VerContactoComponent implements OnInit {
       }
 
     );
- 
+
   }
 
 }

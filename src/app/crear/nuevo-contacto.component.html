@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+<div class="contenBodyEditarCrear">
+<div class="row-mt-5">
+    <div class="col-md-4 pt-4 mx-auto">
+        <form [formGroup]="form" id="crear">
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="direccion" formControlName="direccion"
+                    [ngClass]="{'is-invalid':Direccion?.errors && Direccion?.touched, 'is-valid':!Direccion?.errors && Direccion?.touched}"
+                    class="form-control" id="direccion">
+                <div *ngIf="Direccion?.errors && Direccion?.touched">
+                    <p *ngIf="Direccion?.hasError('required')" class="text-danger">
+                        La Dirección es requerida</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="telefono" formControlName="telefono"
+                    [ngClass]="{'is-invalid':Telefono?.errors && Telefono?.touched, 'is-valid':!Telefono?.errors && Telefono?.touched}"
+                    class="form-control" id="telefono">
+                <div *ngIf="Telefono?.errors && Telefono?.touched">
+                    <p *ngIf="Telefono?.hasError('required')" class="text-danger">
+                        El Teléfono es requerido</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" formControlName="email"
+                    [ngClass]="{'is-invalid':Email?.errors && Email?.touched, 'is-valid':!Email?.errors && Email?.touched}"
+                    class="form-control" id="email">
+                <div *ngIf="Email?.errors && Email?.touched">
+                    <p *ngIf="Email?.hasError('required')" class="text-danger">
+                        El Email es requerido</p>
+                    <!--   <p *ngIf="Email?.hasError('email')" class="text-danger">
+                                El Email debe ser válido</p> -->
+                </div>
+            </div>
+
+            <form [formGroup]="form" class="m-5" (ngSubmit)="onCreate($event)" novalidate #f="ngForm">
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Crear</button>
+            </form>
+        </form>
+    </div>
+</div>
+</div>

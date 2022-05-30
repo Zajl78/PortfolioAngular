@@ -14,12 +14,12 @@ import { TokenService } from '../servicios/token.service';
 export class EditarContactoComponent implements OnInit {
 
 
-  
-  formEditar:FormGroup;
+
+  formEditar: FormGroup;
   contacto: any;
   isLoggedIn = false;
   isLoginFail = false;
-  roles: string[]=[];
+  roles: string[] = [];
 
   constructor(private contactoService: ContactoService,
     private activatedRoute: ActivatedRoute,
@@ -28,16 +28,16 @@ export class EditarContactoComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-    
-      this.formEditar = this.formBuilder.group(
-        {
-          direccion: ['', Validators.required],
-          telefono: ['', Validators.required],
-          email: ['', Validators.required]
-      
+
+    this.formEditar = this.formBuilder.group(
+      {
+        direccion: ['', Validators.required],
+        telefono: ['', Validators.required],
+        email: ['', Validators.required]
+
       })
 
-     }
+  }
 
   ngOnInit(): void {
 
@@ -48,67 +48,69 @@ export class EditarContactoComponent implements OnInit {
     }
 
     const id = this.activatedRoute.snapshot.params['id'];
-this.contactoService.detalles(id).subscribe(
-data => {
+    this.contactoService.detalles(id).subscribe(
+      data => {
 
-this.contacto=data;
-},
-err => {
-  this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-  });
-  this.router.navigate(['/']);
-  
-      
-     
-  }  
-  );
-
-  
-}  
+        this.contacto = data;
+      },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/']);
 
 
-get Direccion(){
 
-  return this.formEditar.get('direccion');
+      }
+    );
+
+
+  }
+
+
+  get Direccion() {
+
+    return this.formEditar.get('direccion');
+  }
+
+  get Telefono() {
+
+    return this.formEditar.get('telefono');
+  }
+  get Email() {
+
+    return this.formEditar.get('email');
+  }
+
+  onUpdate(event: Event): void {
+    event.preventDefault;
+
+    const id = this.activatedRoute.snapshot.params['id'];
+
+    this.contactoService.editar(id, this.formEditar.value).subscribe(data => {
+
+      this.isLoggedIn = true;
+      this.isLoginFail = false;
+      console.log("DATA: " + JSON.stringify(data));
+
+      this.toastr.success('Contacto actualizado', 'Ok', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/portfolio']);
+    },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/editar-contacto']);
+
+
+
+      }
+    );
+
+  }
+
 }
 
-get Telefono(){
 
-  return this.formEditar.get('telefono');
-}
-get Email(){
-
-  return this.formEditar.get('email');
-} 
-
-onUpdate(event: Event): void {
-  event.preventDefault;
-
-  const id = this.activatedRoute.snapshot.params['id'];
-
-  this.contactoService.editar(id, this.formEditar.value).subscribe (data => { 
-
-  this.isLoggedIn=true;
-  this.isLoginFail=false;
-  console.log("DATA: " + JSON.stringify(data));
-
-  this.toastr.success('Contacto actualizado', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-});
- this.router.navigate(['/portfolio']);
-},
-err => {
-this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-});
-this.router.navigate(['/']);
-
-    
-   
-}  
-);
-
-}
-
-}
-  
-  
- 

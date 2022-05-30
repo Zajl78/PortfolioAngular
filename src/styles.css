@@ -1,10 +1,118 @@
 * {
     margin: 0%;
-    padding:0%;
+    padding: 0%;
+}
+
+.contenBody {
+    background-image: url(src/assets/Imagenes/8.jpg);
+    width: 100%;
+    height: fit-content;
+    background-size: cover;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenBody:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+    position: absolute;
+    opacity: 0.8;
+}
+
+.contenBody p,
+h1,
+h2,
+h3,
+h4 img,
+button a,
+i,
+.cardT,
+.car .form-group {
+    position: relative;
+}
+
+
+
+.contenBodyLogin {
+    background-image: url(src/assets/Imagenes/8.jpg);
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenBodyLogin:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+    position: absolute;
+    opacity: 0.8;
+}
+
+.contenBodyLogin p,
+h1,
+h2,
+h3,
+h4 img,
+button a,
+i,
+.cardT,
+.car .form-group {
+    position: relative;
+}
+
+.contenBodyEditarCrear {
+    background-image: url(src/assets/Imagenes/8.jpg);
+    width: 100%;
+    height: 615px;
+    background-size: cover;
+    position: relative;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.contenBodyEditarCrear:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+    position: absolute;
+    opacity: 0.8;
+}
+
+.contenBodyEditarCrear p,
+h1,
+h2,
+h3,
+h4 img,
+button a,
+i,
+.cardT,
+.car .form-group {
+    position: relative;
+}
+
+.form-group,
+button {
+    position: relative;
+
 }
 
 body {
-    display: block;   
+    display: block;
 }
 
 p {
@@ -18,40 +126,41 @@ p {
 .cuerpo {
     padding-bottom: 30px;
 }
-.base {
-    background-color: #c6cee9;
+
+.fa-solid,
+.fa-regular {
+    color: #2f3640;
+    opacity: 0.7;
+}
+
+
+
+/* foto perfil */
+
+#profil {
+    width: 40%;
+    height: 40%;
+    border-style: outset;
+    border-radius: 50%;
+    margin-right: 0%;
+    margin-left: 15%;
+    border-color: turquoise;
+}
+
+/* letras logo argentina programa */
+.idLogo {
+    font-size: small;
 }
 
 .logoAP {
     background-color: black;
 }
 
-#profil {
-    width: 50%;
-    height: 95%;
-    border-style:inset;
-    border-radius: 50%;
-    margin-left: 15%;
-    float:left;
-    border-color:rgb(106, 134, 160);
-}
-
-.idLogo {
-    font-size: small;
-}
-
-#description {
-    padding-top:0;
-    padding-right: 60px;
-    padding-left: 30px;
-}
-
-.card {
-    margin-right:35px;
-    margin-left:35px;
-    border-radius: 32px 32px 0 0;
-    display: flex;
-    word-wrap: break-word;
+/* habilidades-formacion-lenguajes-tecnologias-experienciaL-proyecto */
+.cardT {
+    border-style: ridge;
+    border-color: gray;
+    background-color: white;
 }
 
 .list-info img {
@@ -59,7 +168,7 @@ p {
     padding-left: 0%;
     padding-right: 20px;
     margin-left: 0%;
-    width: 60px;
+    width: 65px;
     height: 50px;
 }
 
@@ -67,7 +176,7 @@ p {
     padding-top: 15px;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    text-align: left;
     color: #054aaa;
 }
 
@@ -80,7 +189,15 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 10px;
     color: #2f3640;
-    
+
+}
+
+.list-info h4 {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 10px;
+    color: #054aaa;
+
 }
 
 .list-info p {
@@ -90,11 +207,22 @@ p {
     color: #2f3640;
 }
 
-.descripcion p {
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 1%;
-    padding-right: 5%;
-    color: #054aaa;
-    text-align: justify;
+/* proyecto */
+
+#proy {
+    display: block;
+    padding-left: 0%;
+    padding-right: 20px;
+    margin-left: 0%;
+    width: initial;
+}
+
+.link {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.carousel-inner img {
+    border-style: outset;
+    border-color: turquoise;
 }

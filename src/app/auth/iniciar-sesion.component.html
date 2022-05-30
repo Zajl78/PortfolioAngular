@@ -1,44 +1,49 @@
 <app-menu></app-menu>
 
-
+<div class="contenBodyLogin">
 <div class="container d-flex justify-content-center">
-    
-    <div class="card rounded shadow-lg" style="border-color: rgb(26, 26, 243); margin-top:5%;">
-    <div class="row">
-        <div class="col">
-    <h1 class="text-center m-3">Iniciar Sesión</h1>
-    </div>
-    <div class="row">
-        <div class="col">
-<form #f="ngForm" [formGroup]="form" class ="m-3" (ngSubmit)="onEnviar($event)" novalidate>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Nombre de Usuario o Email</label>
-      <input type="usernameOrEmail" formControlName="usernameOrEmail"  [ngClass]="{'is-invalid':UsernameOrEmail?.errors && UsernameOrEmail?.touched, 'is-valid':!UsernameOrEmail?.errors && UsernameOrEmail?.touched}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div *ngIf="UsernameOrEmail?.errors && UsernameOrEmail?.touched">
-          <p *ngIf="UsernameOrEmail?.hasError('required')" class="text-danger">
-              El Email es requerido</p>
-          <p *ngIf="UsernameOrEmail?.hasError('email')" class="text-danger">
-              El Email debe ser válido</p>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" formControlName="password" [ngClass]="{'is-invalid':Password?.errors && Password?.touched, 'is-valid':!Password?.errors && Password?.touched}"class="form-control" id="exampleInputPassword1">
-      <div *ngIf="Password?.errors && Password?.touched">
-        <p *ngIf="Password?.hasError('required')" class="text-danger">
-            La contraseña es requerida</p>
-        <p *ngIf="Password?.errors?.['minLength']" class="text-danger">
-            La contraseña debe tener por lo menos 6 caracteres</p>
+
+    <div class="card rounded shadow-lg" style="border-color:turquoise; margin-top:5%;">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center m-3">Iniciar Sesión</h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form #f="ngForm" [formGroup]="form" class="m-3" (ngSubmit)="onEnviar($event)" novalidate>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nombre de Usuario o Email</label>
+                            <input type="usernameOrEmail" formControlName="usernameOrEmail"
+                                [ngClass]="{'is-invalid':UsernameOrEmail?.errors && UsernameOrEmail?.touched, 'is-valid':!UsernameOrEmail?.errors && UsernameOrEmail?.touched}"
+                                class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <div *ngIf="UsernameOrEmail?.errors && UsernameOrEmail?.touched">
+                                <p *ngIf="UsernameOrEmail?.hasError('required')" class="text-danger">
+                                    El Email es requerido</p>
+                                <p *ngIf="UsernameOrEmail?.hasError('email')" class="text-danger">
+                                    El Email debe ser válido</p>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                            <input type="password" formControlName="password"
+                                [ngClass]="{'is-invalid':Password?.errors && Password?.touched, 'is-valid':!Password?.errors && Password?.touched}"
+                                class="form-control" id="exampleInputPassword1">
+                            <div *ngIf="Password?.errors && Password?.touched">
+                                <p *ngIf="Password?.hasError('required')" class="text-danger">
+                                    La contraseña es requerida</p>
+                                <p *ngIf="Password?.errors?.['minLength']" class="text-danger">
+                                    La contraseña debe tener por lo menos 6 caracteres</p>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-dark border-info">Iniciar Sesión</button>
+                        </div>
+                    </form>
+                    <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger mx-5">Error en el login:
+                        {{errMsj}}</div>
+                </div>
+            </div>
         </div>
     </div>
-<div>
-    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-</div>
-</form>   
-    <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger mx-5">Error en el login: {{errMsj}}</div>
 </div>
 </div>
-    </div>
-</div>
-</div>
-

@@ -21,10 +21,10 @@
         <a class="navbar-brand" href="https://github.com/Zajl78"><i class="fa-brands fa-github"></i></a>
       </span>
       <ul class="navbar-nav" style="margin-left: auto;">
-        <!-- <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" routerLink='/index'><i class="fas fa-home"></i> Home</a>
-        </li> -->
-        <li class="nav-item" >
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link" routerLink='/index'><i class="fas fa-undo-alt"></i> Regresar</a>
+        </li>
+        <li class="nav-item" *ngIf="!(isLogged)">
           <a class="nav-link" routerLink='/portfolio'><i class="fa-solid fa-clipboard-list"></i> Portfolio</a>
         </li>
         <li class="nav-item" *ngIf="!(isLogged)">

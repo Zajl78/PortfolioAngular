@@ -7,32 +7,35 @@ import { Tecnologias } from '../models/tecnologias';
   providedIn: 'root'
 })
 export class TecnologiasService {
-  
-  tecnologiasURL = 'http://localhost:8080/persona/tecnologias/';
+
+  /* tecnologiasURL = 'https://damp-island-31662.herokuapp.com/persona/tecnologias/'; 
+  tecnologiasURL = 'http://localhost:8080/api/persona/tecnologias/';*/
+  tecnologiasURL = '/api/persona/tecnologias/';
 
   constructor(private httpClient: HttpClient) { }
 
   public obtenerDatos(): Observable<Tecnologias[]> {
-    return this.httpClient.get<Tecnologias[]>(`${this.tecnologiasURL}` + 'traer');
+    return this.httpClient.get<Tecnologias[]>(this.tecnologiasURL + 'traer');
   }
+  
 
   public detalles(id: number): Observable<Tecnologias> {
-    return this.httpClient.get<Tecnologias>(`${this.tecnologiasURL}` + `detalle/${id}`);
+    return this.httpClient.get<Tecnologias>(this.tecnologiasURL + `detalle/${id}`);
   }
 
   public buscar(id: number): Observable<Tecnologias> {
-    return this.httpClient.get<Tecnologias>(`${this.tecnologiasURL}` + `buscar/${id}`);
+    return this.httpClient.get<Tecnologias>(this.tecnologiasURL + `buscar/${id}`);
   }
 
   public crear(tecnologias: Tecnologias): Observable<any> {
-    return this.httpClient.post<any>(`${this.tecnologiasURL}` + 'crear', tecnologias);
+    return this.httpClient.post<any>(this.tecnologiasURL + 'crear', tecnologias);
   }
 
   public editar(id: number, tecnologias: Tecnologias): Observable<any> {
-    return this.httpClient.put<any>(`${this.tecnologiasURL}` + `editar/${id}`, tecnologias);
+    return this.httpClient.put<any>(this.tecnologiasURL + `editar/${id}`, tecnologias);
   }
 
   public borrar(id: number): Observable<any> {
-    return this.httpClient.delete<any>(`${this.tecnologiasURL}` + `borrar/${id}`);
+    return this.httpClient.delete<any>(this.tecnologiasURL + `borrar/${id}`);
   }
 }

@@ -34,20 +34,3 @@ var currentUser = this.autenticacionService.UsuarioAutenticado;
     }
 
   }
-
-    /* let intReq = req;
-    const token = this.tokenService.getToken();
-    if(token !=null) {
-
-      intReq=req.clone({headers: req.headers.set('Authorization', 'Bearer ' + token)})
-    }
-
-    console.log ("Interceptor esta corriendo" + JSON.stringify (currentUser));
-    return next.handle (req);
-  }
-    
-
-  }
-  
-
-export const interceptorProvider = [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}]; */

@@ -1,22 +1,23 @@
 <app-menu></app-menu>
-
+<div class="contenBodyEditarCrear">
 <div class="row-mt-5">
     <div class="col-md-4 pt-4 mx-auto">
-        <form [formGroup]="form" id="crear" >
+        <form [formGroup]="form" id="crear">
             <div class="form-group">
                 <label for="habilidad">Habilidad</label>
-                <input type="habilidad" formControlName="habilidad"  
-                [ngClass]="{'is-invalid':Habilidad?.errors && Habilidad?.touched, 'is-valid':!Habilidad?.errors && Habilidad?.touched}" 
-                class="form-control" id="habilidad">
+                <input type="habilidad" formControlName="habilidad"
+                    [ngClass]="{'is-invalid':Habilidad?.errors && Habilidad?.touched, 'is-valid':!Habilidad?.errors && Habilidad?.touched}"
+                    class="form-control" id="habilidad">
                 <div *ngIf="Habilidad?.errors && Habilidad?.touched">
                     <p *ngIf="Habilidad?.hasError('required')" class="text-danger">
                         La Habilidad es requerida</p>
                 </div>
             </div>
-            
-            <form [formGroup]="form" class="m-5" (ngSubmit)="onCreate($event)">
-                <button class="btn btn-outline-success btn-block">Crear</button>
+
+            <form [formGroup]="form" class="m-5" (ngSubmit)="onCreate($event)" novalidate #f="ngForm">
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Crear</button>
             </form>
         </form>
     </div>
+</div>
 </div>

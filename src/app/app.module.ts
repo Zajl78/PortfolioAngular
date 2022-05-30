@@ -50,6 +50,8 @@ import { TecnologiasService } from './servicios/tecnologias.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NuevoPerfilComponent } from './crear/nuevo-perfil.component';
+import { NuevoContactoComponent } from './crear/nuevo-contacto.component';
 
 
 @NgModule({
@@ -64,6 +66,8 @@ import { ToastrModule } from 'ngx-toastr';
     VerPerfilComponent,
     VerProyectosComponent,
     VerTecnologiasComponent,
+    NuevoPerfilComponent,
+    NuevoContactoComponent,
     NuevoExperienciaLaboralComponent,
     NuevoFormacionComponent,
     NuevoHabilidadesComponent,
@@ -83,6 +87,7 @@ import { ToastrModule } from 'ngx-toastr';
     PortfolioComponent,
     IniciarSesionComponent,
     MenuComponent,
+   
   ],
   imports: [
     BrowserModule,

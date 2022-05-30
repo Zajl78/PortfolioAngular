@@ -1,12 +1,14 @@
-<!--Formación-->  
-<div class="card border-primary mb-2">
-    <div class="card-titles" >
+<!--Formación-->
+<div class="cardT border-info rounded-pill mb-2">
+    <div class="card-titles">
         <div class="row" id="flush-headingForm1">
-            <div class="col-11">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseForm1" aria-expanded="false" aria-controls="flush-collapseForm1">
-                <h2>Formación </h2></button>
+            <div class="col-10 offset-1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseForm1" aria-expanded="false" aria-controls="flush-collapseForm1">
+                    <h2>Formación </h2>
+                </button>
             </div>
-            <div class="col-1" >
+            <div class="col-1">
                 <div class="btn-edit" *ngIf="isAdmin">
                     <a routerLink="/nuevo-formacion" class="btn-right"><i class="fa-solid fa-circle-plus"></i></a>
                 </div>
@@ -14,43 +16,46 @@
         </div>
     </div>
     <div>
-        <div id="flush-collapseForm1" class="accordion-collapse collapse" aria-labelledby="flush-headingForm1" data-bs-parent="#accordionFlushFormacion">
+        <div id="flush-collapseForm1" class="accordion-collapse collapse" aria-labelledby="flush-headingForm1"
+            data-bs-parent="#accordionFlushFormacion">
             <div class="accordion-body">
                 <ul style="list-style-type: none" class="items-list">
                     <li *ngFor="let formacion of formacion">
                         <div class="data-container">
                             <div class="list-info">
                                 <div class="row">
-                                    <div class="col-1">
-                                        <img [src]="formacion.logo" class="img-fluid rounded-start" alt="Logo UDO" 
-                                    />
+                                    <div class="col-1 offset-1">
+                                        <img [src]="formacion.logo" class="img-fluid rounded-start" alt="Logo UDO" />
                                     </div>
                                     <div class="col-3">
-                                    <h3>{{formacion.tipo}}</h3>
-                                    <p>{{formacion.titulo}} {{formacion.institucion}} {{formacion.lugar}}</p>
-                                    <p><time>{{formacion.desde}}</time> / <time>{{formacion.hasta}}</time></p>
+                                        <h3><b>{{formacion.tipo}}</b></h3>
+                                       <h4><b>{{formacion.titulo}}</b></h4> <p>{{formacion.institucion}} {{formacion.lugar}}</p>
+                                        <p><time>{{formacion.desde}}</time> / <time>{{formacion.hasta}}</time></p>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-5">
                                         <div class="descripcion">
                                             <p>{{formacion.observacion}}</p>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="row"> 
-                                            
+                                        <div class="row">
+
                                             <div class="col-1">
                                                 <div class="data-control">
                                                     <div class="btn-edit" *ngIf="isAdmin">
-                                                        <a routerLink="/editar-formacion/{{formacion.id}}" class="btn-right"><i class="fa-regular fa-pen-to-square"></i></a>
-                                                        </div>
+                                                        <a routerLink="/editar-formacion/{{formacion.id}}"
+                                                            class="btn-right"><i
+                                                                class="fa-regular fa-pen-to-square"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            
-                                            <div class="col-1" >
+
+                                            <div class="col-1">
                                                 <div class="data-control">
                                                     <div class="btn-edit" *ngIf="isAdmin">
-                                                        <a class="btn-right" (click)="borrar(formacion.id)"><i class="fa-regular fa-trash-can"></i></a>
-                                                        </div>
+                                                        <a class="btn-right" (click)="borrar(formacion.id)"><i
+                                                                class="fa-regular fa-trash-can"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

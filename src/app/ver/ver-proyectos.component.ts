@@ -12,11 +12,11 @@ import { TokenService } from '../servicios/token.service';
   providers: [ProyectosService]
 })
 export class VerProyectosComponent implements OnInit {
-  proyectos: any[]= [];
+  proyectos: any[] = [];
   roles: string[];
   isAdmin = false;
-  
-  constructor(private datosPortfolio:ProyectosService,
+
+  constructor(private datosPortfolio: ProyectosService,
     private toastr: ToastrService,
     private router: Router,
     private tokenService: TokenService) { }
@@ -25,27 +25,27 @@ export class VerProyectosComponent implements OnInit {
     this.cargarProyectos();
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach(rol => {
-      if(rol === 'ROLE_ADMIN'){
+      if (rol === 'ROLE_ADMIN') {
         this.isAdmin = true;
       }
     });
-    
+
   }
-  cargarProyectos():void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+  cargarProyectos(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data => {
       console.log("proyectos" + JSON.stringify(data));
-      this.proyectos=data;
+      this.proyectos = data;
     });
-  
-  
+
+
   }
 
   borrar(id: number) {
 
     /* alert('borrar el ' + id); */
-      
-      this.datosPortfolio.borrar(id).subscribe(data => {
-      this.toastr.success('Experiencia Laboral Eliminada', 'Ok', {
+
+    this.datosPortfolio.borrar(id).subscribe(data => {
+      this.toastr.success('Proyecto Eliminado', 'Ok', {
         timeOut: 3000, positionClass: 'toast-top-center'
       });
       this.cargarProyectos();
@@ -58,7 +58,7 @@ export class VerProyectosComponent implements OnInit {
       }
 
     );
- 
+
   }
 
 }

@@ -12,12 +12,12 @@ import { TokenService } from '../servicios/token.service';
   providers: [PerfilService]
 })
 export class VerPerfilComponent implements OnInit {
-  
-  perfil: any[]=[];
+
+  perfil: any[] = [];
   roles: string[];
   isAdmin = false;
 
-  constructor(private datosPortfolio:PerfilService,
+  constructor(private datosPortfolio: PerfilService,
     private toastr: ToastrService,
     private router: Router,
     private tokenService: TokenService) { }
@@ -26,26 +26,26 @@ export class VerPerfilComponent implements OnInit {
     this.cargarPerfil();
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach(rol => {
-      if(rol === 'ROLE_ADMIN'){
+      if (rol === 'ROLE_ADMIN') {
         this.isAdmin = true;
       }
     });
-    
+
   }
-  cargarPerfil():void {
-     this.datosPortfolio.obtenerDatos().subscribe(data =>{
-       console.log("perfil" + JSON.stringify(data));
-       this.perfil=data;
-     });
-   
+  cargarPerfil(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data => {
+      console.log("perfil" + JSON.stringify(data));
+      this.perfil = data;
+    });
+
   }
 
   borrar(id: number) {
 
     /* alert('borrar el ' + id); */
-      
-      this.datosPortfolio.borrar(id).subscribe(data => {
-      this.toastr.success('Experiencia Laboral Eliminada', 'Ok', {
+
+    this.datosPortfolio.borrar(id).subscribe(data => {
+      this.toastr.success('Perfil Eliminado', 'Ok', {
         timeOut: 3000, positionClass: 'toast-top-center'
       });
       this.cargarPerfil();
@@ -58,7 +58,7 @@ export class VerPerfilComponent implements OnInit {
       }
 
     );
- 
+
   }
 }
 

@@ -62,29 +62,28 @@ export class NuevoTecnologiasComponent implements OnInit {
   
 
   onCreate(event: Event): void {
+
       event.preventDefault;
-
-     
-      this.tecnologiasService.crear(this.form.value).subscribe (data => { 
     
-      this.isLoggedIn=true;
-      this.isLoginFail=false;
-      console.log("DATA: " + JSON.stringify(data));
-
-      this.toastr.success('Nueva Tecnología creada', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-   });
-     this.router.navigate(['/portfolio']);
-   },
-   err => {
-    this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-    });
-    this.router.navigate(['/']);
-  
-        
-       
-}  
-);
-
-}
-} 
-
+        this.tecnologiasService.crear(this.form.value).subscribe (data => { 
+    
+          this.isLoggedIn=true;
+          this.isLoginFail=false;
+          console.log("DATA: " + JSON.stringify(data));
+    
+          this.toastr.success('Tecnología creada', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
+       });
+         this.router.navigate(['/portfolio']);
+       },
+       err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/nuevo-tecnologias']);
+      
+            
+           
+    }  
+    );
+    
+    }
+    } 

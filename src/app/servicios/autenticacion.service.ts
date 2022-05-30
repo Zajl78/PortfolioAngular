@@ -10,7 +10,8 @@ import { IniciarSesion } from '../models/iniciar-sesion';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  authURL='http://localhost:8080/auth/';
+ /*  authURL='http://localhost:8080/api/auth/'; */
+  authURL='/api/auth/';
 
   currentUserSubject:BehaviorSubject<any>
 

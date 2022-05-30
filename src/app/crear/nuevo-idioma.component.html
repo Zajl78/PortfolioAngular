@@ -1,32 +1,33 @@
 <app-menu></app-menu>
-
+<div class="contenBodyEditarCrear">
 <div class="row-mt-5">
     <div class="col-md-4 pt-4 mx-auto">
-        <form [formGroup]="form" id="crear" >
+        <form [formGroup]="form" id="crear">
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="nombre" formControlName="nombre"  
-                [ngClass]="{'is-invalid':Nombre?.errors && Nombre?.touched, 'is-valid':!Nombre?.errors && Nombre?.touched}" 
-                class="form-control" id="nombre">
+                <input type="nombre" formControlName="nombre"
+                    [ngClass]="{'is-invalid':Nombre?.errors && Nombre?.touched, 'is-valid':!Nombre?.errors && Nombre?.touched}"
+                    class="form-control" id="nombre">
                 <div *ngIf="Nombre?.errors && Nombre?.touched">
                     <p *ngIf="Nombre?.hasError('required')" class="text-danger">
                         El Nombre es requerido</p>
                 </div>
             </div>
             <div class="form-group">
-                    <label for="nivel">Nivel de Dominio</label>
-                    <input type="nivel" formControlName="nivel"  
-                    [ngClass]="{'is-invalid':Nivel?.errors && Nivel?.touched, 'is-valid':!Nivel?.errors && Nivel?.touched}" 
+                <label for="nivel">Nivel de Dominio</label>
+                <input type="nivel" formControlName="nivel"
+                    [ngClass]="{'is-invalid':Nivel?.errors && Nivel?.touched, 'is-valid':!Nivel?.errors && Nivel?.touched}"
                     class="form-control" id="nivel" nombre="nivel">
-                        <div *ngIf="Nivel?.errors && Nivel?.touched">
-                            <p *ngIf="Nivel?.hasError('required')" class="text-danger">
-                                El Nivel del Dominio es requerido</p>
-                            <br>
-                        </div>
+                <div *ngIf="Nivel?.errors && Nivel?.touched">
+                    <p *ngIf="Nivel?.hasError('required')" class="text-danger">
+                        El Nivel del Dominio es requerido</p>
+                    <br>
+                </div>
             </div>
-            <form [formGroup]="form" class="m-5" (ngSubmit)="onCreate($event)">
-                <button class="btn btn-outline-success btn-block">Crear</button>
+            <form [formGroup]="form" class="m-5" (ngSubmit)="onCreate($event)" novalidate #f="ngForm">
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Crear</button>
             </form>
         </form>
     </div>
+</div>
 </div>

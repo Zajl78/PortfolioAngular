@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Perfil } from '../models/perfil';
 import { TokenService } from '../servicios/token.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { TokenService } from '../servicios/token.service';
 export class IndexComponent implements OnInit {
 
   isLogged = false;
+  perfil: Perfil[]=[];
   /* isLoginFail = false;
   roles: string[]=[]; */
 

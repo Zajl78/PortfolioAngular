@@ -8,28 +8,27 @@ import { ExperienciaLaboral } from '../models/experiencia-laboral';
 })
 export class ExperienciaLaboralService {
 
-  experienciaLaboralURL = 'http://localhost:8080/persona/experienciaLaboral/';
+  /* experienciaLaboralURL = 'https://damp-island-31662.herokuapp.com/persona/experienciaLaboral/';
+  experienciaLaboralURL = 'http://localhost:8080/persona/experienciaLaboral/'; */
+  experienciaLaboralURL = '/api/persona/experienciaLaboral/';
 
   constructor(private httpClient: HttpClient) { }
 
   public obtenerDatos(): Observable<ExperienciaLaboral[]> {
-    return this.httpClient.get<ExperienciaLaboral[]>(`${this.experienciaLaboralURL}` + 'traer');
+    return this.httpClient.get<ExperienciaLaboral[]>(this.experienciaLaboralURL + 'traer');
   }
 
   public detalles(id: number): Observable<ExperienciaLaboral> {
-    return this.httpClient.get<ExperienciaLaboral>(`${this.experienciaLaboralURL}` + `detalle/${id}`);
+    return this.httpClient.get<ExperienciaLaboral>(this.experienciaLaboralURL + `detalle/${id}`);
   }
 
   public buscar(id: number): Observable<ExperienciaLaboral> {
-    return this.httpClient.get<ExperienciaLaboral>(`${this.experienciaLaboralURL}` + `buscar/${id}`);
+    return this.httpClient.get<ExperienciaLaboral>(this.experienciaLaboralURL + `buscar/${id}`);
   }
 
   public crear(experienciaLaboral: ExperienciaLaboral): Observable<any> {
-    return this.httpClient.post<any>(`${this.experienciaLaboralURL}` + 'crear', experienciaLaboral).pipe(map(data=>{
-      sessionStorage.setItem('currentUser', JSON.stringify(data));
-      return data;
-    }))
-  
+    return this.httpClient.post<any>(this.experienciaLaboralURL + 'crear', experienciaLaboral);
+   
   }
 
   public editar(id: number, experienciaLaboral: ExperienciaLaboral): Observable<any> {

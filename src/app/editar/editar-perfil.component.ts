@@ -14,12 +14,12 @@ import { TokenService } from '../servicios/token.service';
 export class EditarPerfilComponent implements OnInit {
 
 
-  
-  formEditar:FormGroup;
+
+  formEditar: FormGroup;
   perfil: any;
   isLogged = false;
   isLoginFail = false;
-  roles: string[]=[];
+  roles: string[] = [];
 
   constructor(private perfilService: PerfilService,
     private activatedRoute: ActivatedRoute,
@@ -28,18 +28,18 @@ export class EditarPerfilComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-    
-      this.formEditar = this.formBuilder.group(
-        {
-          fullName: ['', Validators.required],
-          puesto: ['', Validators.required],
-          acerca_de_mi: ['', Validators.required],
-          fotoPerfil: ['',Validators.required]
-         
-      
+
+    this.formEditar = this.formBuilder.group(
+      {
+        fullName: ['', Validators.required],
+        puesto: ['', Validators.required],
+        acerca_de_mi: ['', Validators.required],
+        fotoPerfil: ['', Validators.required]
+
+
       })
 
-     }
+  }
 
   ngOnInit(): void {
 
@@ -53,69 +53,71 @@ export class EditarPerfilComponent implements OnInit {
 
     this.perfilService.detalles(id).subscribe(
       data => {
-      
-      this.perfil=data;
+
+        this.perfil = data;
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/']);
-        
-            
-           
-        }  
-        );
-      
-        
-      }  
 
 
-get Puesto(){
 
-  return this.formEditar.get('puesto');
+      }
+    );
+
+
+  }
+
+
+  get Puesto() {
+
+    return this.formEditar.get('puesto');
+  }
+
+  get FullName() {
+
+    return this.formEditar.get('fullName');
+  }
+  get Acerca_de_mi() {
+
+    return this.formEditar.get('acerca_de_mi');
+  }
+  get FotoPerfil() {
+
+    return this.formEditar.get('fotoPerfil');
+  }
+
+  onUpdate(event: Event): void {
+    event.preventDefault;
+
+    const id = this.activatedRoute.snapshot.params['id'];
+
+    this.perfilService.editar(id, this.formEditar.value).subscribe(data => {
+
+      this.isLogged = true;
+      this.isLoginFail = false;
+      console.log("DATA: " + JSON.stringify(data));
+
+      this.toastr.success('Perfil actualizado', 'Ok', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/portfolio']);
+    },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/editar-perfil']);
+
+
+
+      }
+    );
+
+  }
+
 }
 
-get FullName(){
 
-  return this.formEditar.get('fullName');
-}
-get Acerca_de_mi(){
-
-  return this.formEditar.get('acerca_de_mi');
-}
-get FotoPerfil(){
-
-  return this.formEditar.get('fotoPerfil');
-}
-
-onUpdate(event: Event): void {
-  event.preventDefault;
-
-  const id = this.activatedRoute.snapshot.params['id'];
-
-  this.perfilService.editar(id, this.formEditar.value).subscribe (data => { 
-
-  this.isLogged=true;
-  this.isLoginFail=false;
-  console.log("DATA: " + JSON.stringify(data));
-
-  this.toastr.success('Perfil actualizado', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-});
- this.router.navigate(['/portfolio']);
-},
-err => {
-this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-});
-this.router.navigate(['/']);
-
-    
-   
-}  
-);
-
-}
-
-}
-  
-  
- 

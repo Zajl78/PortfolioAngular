@@ -13,10 +13,10 @@ import { TokenService } from '../servicios/token.service';
 })
 export class NuevoHabilidadesComponent implements OnInit {
 
-  form:FormGroup;
+  form: FormGroup;
   isLoggedIn = false;
   isLoginFail = false;
-  roles: string[]=[];
+  roles: string[] = [];
 
   constructor(private habilidadesService: HabilidadesService,
     private autenticacionService: AutenticacionService,
@@ -25,13 +25,13 @@ export class NuevoHabilidadesComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-      this.form = this.formBuilder.group(
-        {
-          habilidad: ['', Validators.required]
-      
+    this.form = this.formBuilder.group(
+      {
+        habilidad: ['', Validators.required]
+
       })
 
-     }
+  }
 
   ngOnInit(): void {
 
@@ -43,35 +43,37 @@ export class NuevoHabilidadesComponent implements OnInit {
 
   }
 
-  get Habilidad(){
+  get Habilidad() {
 
     return this.form.get('habilidad');
   }
-  
-  onCreate(event: Event): void {
-      event.preventDefault;
 
-     
-      this.habilidadesService.crear(this.form.value).subscribe (data => { 
-    
-      this.isLoggedIn=true;
-      this.isLoginFail=false;
+  onCreate(event: Event): void {
+    event.preventDefault;
+
+
+    this.habilidadesService.crear(this.form.value).subscribe(data => {
+
+      this.isLoggedIn = true;
+      this.isLoginFail = false;
       console.log("DATA: " + JSON.stringify(data));
 
-      this.toastr.success('Habilidad creada', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-   });
-     this.router.navigate(['/portfolio']);
-   },
-   err => {
-    this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-    });
-    this.router.navigate(['/']);
-  
-        
-       
-}  
-);
+      this.toastr.success('Habilidad creada', 'Ok', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/portfolio']);
+    },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/nuevo-habilidades']);
 
+
+
+      }
+    );
+
+  }
 }
-} 
 

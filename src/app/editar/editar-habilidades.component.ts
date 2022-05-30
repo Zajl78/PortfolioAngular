@@ -14,11 +14,11 @@ import { TokenService } from '../servicios/token.service';
 })
 export class EditarHabilidadesComponent implements OnInit {
 
-  form:FormGroup;
+  form: FormGroup;
   habilidad: any;
   isLogged = false;
   isLoginFail = false;
-  roles: string[]=[];
+  roles: string[] = [];
 
   constructor(private habilidadesService: HabilidadesService,
     private autenticacionService: AutenticacionService,
@@ -28,13 +28,13 @@ export class EditarHabilidadesComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-      this.form = this.formBuilder.group(
-        {
-          habilidad: ['', Validators.required]
-      
+    this.form = this.formBuilder.group(
+      {
+        habilidad: ['', Validators.required]
+
       })
 
-     }
+  }
 
   ngOnInit(): void {
 
@@ -48,53 +48,56 @@ export class EditarHabilidadesComponent implements OnInit {
 
     this.habilidadesService.detalles(id).subscribe(
       data => {
-      
-      this.habilidad=data;
+
+        this.habilidad = data;
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/']);
-        
-            
-           
-        }  
-        );
-      
-        
-      }  
 
-  get Habilidad(){
+
+
+      }
+    );
+
+
+  }
+
+  get Habilidad() {
 
     return this.form.get('habilidad');
   }
-  
+
   onUpdate(event: Event): void {
     event.preventDefault;
-  
+
     const id = this.activatedRoute.snapshot.params['id'];
-  
-    this.habilidadesService.editar(id, this.form.value).subscribe (data => { 
-  
-    this.isLogged=true;
-    this.isLoginFail=false;
-    console.log("DATA: " + JSON.stringify(data));
-  
-    this.toastr.success('Experiencia Laboral actualizada', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-  });
-   this.router.navigate(['/portfolio']);
-  },
-  err => {
-  this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-  });
-  this.router.navigate(['/']);
-  
-      
-     
-  }  
-  );
-  
+
+    this.habilidadesService.editar(id, this.form.value).subscribe(data => {
+
+      this.isLogged = true;
+      this.isLoginFail = false;
+      console.log("DATA: " + JSON.stringify(data));
+
+      this.toastr.success('Habilidad actualizada', 'Ok', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/portfolio']);
+    },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/editar-habilidades']);
+
+
+
+      }
+    );
+
   }
-  
-} 
+
+}
 

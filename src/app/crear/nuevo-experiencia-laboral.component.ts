@@ -13,10 +13,10 @@ import { AutenticacionService } from '../servicios/autenticacion.service';
 })
 export class NuevoExperienciaLaboralComponent implements OnInit {
 
-  form:FormGroup;
+  form: FormGroup;
   isLogged = false;
   isLoginFail = false;
-  roles: string[]=[];
+  roles: string[] = [];
 
   constructor(private experienciaLaboralService: ExperienciaLaboralService,
     private autenticacionService: AutenticacionService,
@@ -25,19 +25,19 @@ export class NuevoExperienciaLaboralComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-      this.form = this.formBuilder.group(
-        {
-          logo: ['', Validators.required],
-          puesto: ['', Validators.required],
-          empresa: ['', Validators.required],
-          pais: ['',Validators.required],
-          desde: ['', Validators.required],
-          hasta: ['', Validators.required],
-          descripcion: ['', Validators.required]
-      
+    this.form = this.formBuilder.group(
+      {
+        logo: ['', Validators.required],
+        puesto: ['', Validators.required],
+        empresa: ['', Validators.required],
+        pais: ['', Validators.required],
+        desde: ['', Validators.required],
+        hasta: ['', Validators.required],
+        descripcion: ['', Validators.required]
+
       })
 
-     }
+  }
 
   ngOnInit(): void {
 
@@ -49,59 +49,61 @@ export class NuevoExperienciaLaboralComponent implements OnInit {
 
   }
 
-  get Puesto(){
+  get Puesto() {
 
     return this.form.get('puesto');
   }
-  get Empresa(){
+  get Empresa() {
 
     return this.form.get('empresa');
   }
-  get Pais(){
+  get Pais() {
 
     return this.form.get('pais');
   }
-  get Desde(){
+  get Desde() {
 
     return this.form.get('desde');
   }
-  get Hasta(){
+  get Hasta() {
 
     return this.form.get('hasta');
   }
-  get Logo(){
+  get Logo() {
 
     return this.form.get('logo');
   }
-  get Descripcion(){
+  get Descripcion() {
 
     return this.form.get('descripcion');
   }
 
   onCreate(event: Event): void {
-      event.preventDefault;
+    event.preventDefault;
 
-     
-      this.experienciaLaboralService.crear(this.form.value).subscribe (data => { 
-    
-      this.isLogged=true;
-      this.isLoginFail=false;
+
+    this.experienciaLaboralService.crear(this.form.value).subscribe(data => {
+
+      this.isLogged = true;
+      this.isLoginFail = false;
       console.log("DATA: " + JSON.stringify(data));
 
-      this.toastr.success('Experiencia Laboral creada', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-   });
-     this.router.navigate(['/portfolio']);
-   },
-   err => {
-    this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-    });
-    this.router.navigate(['/']);
-  
-        
-       
-}  
-);
+      this.toastr.success('Experiencia Laboral creada', 'Ok', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/portfolio']);
+    },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/nuevo-experiencia-laboral']);
 
+
+
+      }
+    );
+
+  }
 }
-} 
 

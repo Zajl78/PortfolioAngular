@@ -1,56 +1,61 @@
 <!--Habilidades-->
-<div class="card border-primary mb-2">
-    <div class="card-titles" >
+<div class="cardT border-info rounded-pill mb-2">
+    <div class="card-titles">
         <div class="row" id="flush-headingHab1">
-            <div class="col-11">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseHab1" aria-expanded="false" aria-controls="flush-collapseHab1">
-                <h2>Habilidades</h2></button>
+            <div class="col-10 offset-1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseHab1" aria-expanded="false" aria-controls="flush-collapseHab1">
+                    <h2>Habilidades</h2>
+                </button>
             </div>
             <div class="col-1">
                 <div class="btn-edit" *ngIf="isAdmin">
-                <a routerLink="/nuevo-habilidades"  class="btn-right"><i class="fa-solid fa-circle-plus"></i></a>
+                    <a routerLink="/nuevo-habilidades" class="btn-right"><i class="fa-solid fa-circle-plus"></i></a>
                 </div>
             </div>
         </div>
     </div>
     <div>
-        <div id="flush-collapseHab1" class="accordion-collapse collapse" aria-labelledby="flush-headingHab1" data-bs-parent="#accordionFlushHabilidad">
+        <div id="flush-collapseHab1" class="accordion-collapse collapse" aria-labelledby="flush-headingHab1"
+            data-bs-parent="#accordionFlushHabilidad">
             <div class="accordion-body">
-                <ul class="items-list">
-                <li *ngFor="let habilidad of habilidades">
-                    <div class="data-container">
-                        <div class="list-info">
-                            <div class="row">
-                                <div class="col-10">
-                                <p>{{habilidad.habilidad}}</p>
-                                </div>
-                                <div class="col">
-                                    <div class="row"> 
-                                        
-                                        <div class="col-1">
-                                            <div class="data-control">
-                                                <div class="btn-edit" *ngIf="isAdmin">
-                                                    <a routerLink="/editar-habilidades/{{habilidad.id}}" class="btn-right"><i class="fa-regular fa-pen-to-square"></i></a>
+                <ul style="list-style-type: none;"class="items-list">
+                    <li *ngFor="let habilidad of habilidades">
+                        <div class="data-container">
+                            <div class="list-info">
+                                <div class="row">
+                                    <div class="col-9 offset-1">
+                                        <p>{{habilidad.habilidad}}</p>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+
+                                            <div class="col-1">
+                                                <div class="data-control">
+                                                    <div class="btn-edit" *ngIf="isAdmin">
+                                                        <a routerLink="/editar-habilidades/{{habilidad.id}}"
+                                                            class="btn-right"><i
+                                                                class="fa-regular fa-pen-to-square"></i></a>
                                                     </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        
-                                        <div class="col-1" >
-                                            <div class="data-control">
-                                                <div class="btn-edit" *ngIf="isAdmin">
-                                                    <a class="btn-right" (click)="borrar(habilidad.id)"><i class="fa-regular fa-trash-can"></i></a>
+
+                                            <div class="col-1">
+                                                <div class="data-control">
+                                                    <div class="btn-edit" *ngIf="isAdmin">
+                                                        <a class="btn-right" (click)="borrar(habilidad.id)"><i
+                                                                class="fa-regular fa-trash-can"></i></a>
                                                     </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-

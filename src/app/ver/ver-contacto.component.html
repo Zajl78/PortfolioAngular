@@ -1,52 +1,62 @@
-
 <!--Contacto-->
 <div class="row">
     <div class="col">
-        <p><button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+        <p><button class="btn btn-dark border-info" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseWidthExample" aria-expanded="false"
                 aria-controls="collapseWidthExample">Contacto</button></p>
         <div class="collapse collapse-horizontal" id="collapseWidthExample">
-            <div class="card card-body" style="width: 350px; margin:15px">
+            <div class="card card-body border-info" style="width: 350px; margin:15px;">
+
+                <div class="btn-edit offset-11" *ngIf="isAdmin">
+                    <a routerLink="/nuevo-contacto" class="btn-right"><i class="fa-solid fa-circle-plus"></i></a>
+                </div>
+
                 <ul style="list-style-type: none" class="items-list">
                     <li *ngFor="let contacto of contacto">
                         <div class="col">
-                            <div class="row" style="margin-left: auto;">
-                                <div class="col-10"></div>
-                                <div class="col-1">
-                                    <div class="data-control">
-                                        <div class="btn-edit" *ngIf="isAdmin">
-                                            <a routerLink="/editar-contacto/{{contacto.id}}" class="btn-right"><i class="fa-regular fa-pen-to-square"></i></a>
-                                            </div>
-                                    </div>
-                                </div>
-                                <div class="col-1">
-                                    <div class="data-control">
-                                        <div class="btn-edit" *ngIf="isAdmin">
-                                            <a class="btn-right" (click)="borrar(contacto.id)"><i class="fa-regular fa-trash-can"></i></a>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <br>
                             <div class="row">
                                 <div class=col-3>
                                     <i class="fa-solid fa-map-location-dot"></i>
                                 </div>
                                 <div class=col-9>
-                                    <p>{{contacto.direccion}}</p>
+                                    <p><i>{{contacto.direccion}}</i></p>
                                 </div>
                                 <div class=col-3>
                                     <i class="fa-solid fa-at"></i>
                                 </div>
                                 <div class=col-9>
-                                    <p>{{contacto.email}}</p>
+                                    <p><i>{{contacto.email}}</i></p>
                                 </div>
                                 <div class=col-3>
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <div class=col-9>
-                                    <p>{{contacto.telefono}}</p>
+                                    <p><i>{{contacto.telefono}}</i></p>
                                 </div>
+                            </div>
+
+                            <div class="row" style="margin-left: auto;">
+                                <div class="col-8"></div>
+
+                                <div class="col-1">
+                                    <div class="data-control">
+                                        <div class="btn-edit" *ngIf="isAdmin">
+                                            <a routerLink="/editar-contacto/{{contacto.id}}" class="btn-right"><i
+                                                    class="fa-regular fa-pen-to-square"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="data-control">
+                                        <div class="btn-edit" *ngIf="isAdmin">
+                                            <a class="btn-right" (click)="borrar(contacto.id)"><i
+                                                    class="fa-regular fa-trash-can"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </li>

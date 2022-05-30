@@ -1,13 +1,13 @@
 <app-menu></app-menu>
-
+<div class="contenBodyEditarCrear">
 <div class="row-mt-5">
     <div class="col-md-4 pt-4 mx-auto">
-        <form [formGroup]="form" id="crear" >
+        <form [formGroup]="form" id="crear">
             <div class="form-group">
                 <label for="proyecto">Proyecto</label>
-                <input type="proyecto" formControlName="proyecto"  
-                [ngClass]="{'is-invalid':Proyecto?.errors && Proyecto?.touched, 'is-valid':!Proyecto?.errors && Proyecto?.touched}" 
-                class="form-control" id="proyecto" [(ngModel)]="proyecto.proyecto" required>
+                <input type="proyecto" formControlName="proyecto"
+                    [ngClass]="{'is-invalid':Proyecto?.errors && Proyecto?.touched, 'is-valid':!Proyecto?.errors && Proyecto?.touched}"
+                    class="form-control" id="proyecto" [(ngModel)]="proyecto.proyecto" required>
                 <div *ngIf="Proyecto?.errors && Proyecto?.touched">
                     <p *ngIf="Proyecto?.hasError('required')" class="text-danger">
                         El Proyecto es requerido</p>
@@ -15,28 +15,50 @@
             </div>
             <div class="form-group">
                 <label for="fecha">Fecha</label>
-                <input type="fecha" formControlName="fecha"  
-                [ngClass]="{'is-invalid':Fecha?.errors && Fecha?.touched, 'is-valid':!Fecha?.errors && Fecha?.touched}" 
-                class="form-control" id="fecha" [(ngModel)]="proyecto.fecha" required>
-                    <div *ngIf="Fecha?.errors && Fecha?.touched">
-                        <p *ngIf="Fecha?.hasError('required')" class="text-danger">
-                            La fecha es requerida</p>
-                    </div>
+                <input type="fecha" formControlName="fecha"
+                    [ngClass]="{'is-invalid':Fecha?.errors && Fecha?.touched, 'is-valid':!Fecha?.errors && Fecha?.touched}"
+                    class="form-control" id="fecha" [(ngModel)]="proyecto.fecha" required>
+                <div *ngIf="Fecha?.errors && Fecha?.touched">
+                    <p *ngIf="Fecha?.hasError('required')" class="text-danger">
+                        La fecha es requerida</p>
+                </div>
             </div>
             <div class="form-group">
-                    <label for="descripcion">Descripción</label>
-                    <input type="descripcion" formControlName="descripcion"  
-                    [ngClass]="{'is-invalid':Descripcion?.errors && Descripcion?.touched, 'is-valid':!Descripcion?.errors && Descripcion?.touched}" 
+                <label for="descripcion">Descripción</label>
+                <input type="descripcion" formControlName="descripcion"
+                    [ngClass]="{'is-invalid':Descripcion?.errors && Descripcion?.touched, 'is-valid':!Descripcion?.errors && Descripcion?.touched}"
                     class="form-control" id="descripcion" [(ngModel)]="proyecto.descripcion" required>
-                        <div *ngIf="Descripcion?.errors && Descripcion?.touched">
-                                <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
-                                    La Descripción es requerida</p>
-                        </div>
+                <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+                    <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
+                        La Descripción es requerida</p>
+                </div>
             </div>
-            
-            <form [formGroup]="form" class="m-5" (ngSubmit)="onUpdate($event)">
-                <button class="btn btn-outline-success btn-block">Actualizar</button>
+
+            <div class="form-group">
+                <label for="imagen">Imágen</label>
+                <input type="imagen" formControlName="imagen"
+                    [ngClass]="{'is-invalid':Imagen?.errors && Imagen?.touched, 'is-valid':!Imagen?.errors && Imagen?.touched}"
+                    class="form-control" id="imagen" [(ngModel)]="proyecto.imagen" required>
+                <div *ngIf="Imagen?.errors && Imagen?.touched">
+                    <p *ngIf="Imagen?.hasError('required')" class="text-danger">
+                        Una Imágen alusiva al proyecto es requerida</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="link">Link del Proyecto</label>
+                <input type="link" formControlName="link"
+                    [ngClass]="{'is-invalid':Link?.errors && Link?.touched, 'is-valid':!Link?.errors && Link?.touched}"
+                    class="form-control" id="link" [(ngModel)]="proyecto.link" required>
+                <div *ngIf="Link?.errors && Link?.touched">
+                    <p *ngIf="Link?.hasError('required')" class="text-danger">
+                        El Link del proyecto es requerido</p>
+                </div>
+            </div>
+
+            <form [formGroup]="form" class="m-5" (ngSubmit)="onUpdate($event)" novalidate #f="ngForm">
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Actualizar</button>
             </form>
         </form>
     </div>
+</div>
 </div>

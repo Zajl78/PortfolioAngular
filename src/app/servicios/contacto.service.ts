@@ -8,34 +8,35 @@ import { Contacto } from '../models/contacto';
 })
 export class ContactoService {
   
-  contactoURL = 'http://localhost:8080/persona/contacto/';
+  /* contactoURL = 'http://localhost:8080/persona/contacto/'; */
+  contactoURL = '/api/persona/contacto/';
 
   constructor(private httpClient: HttpClient) { }
 
   
   public obtenerDatos(): Observable<Contacto[]> {
-    return this.httpClient.get<Contacto[]>(`${this.contactoURL}` + 'traer');
+    return this.httpClient.get<Contacto[]>(this.contactoURL + 'traer');
   }
 
   public detalles(id: number): Observable<Contacto> {
-    return this.httpClient.get<Contacto>(`${this.contactoURL}` + `detalle/${id}`);
+    return this.httpClient.get<Contacto>(this.contactoURL + `detalle/${id}`);
   }
 
 
   public buscar(id: number): Observable<Contacto> {
-    return this.httpClient.get<Contacto>(`${this.contactoURL}` + `buscar/${id}`);
+    return this.httpClient.get<Contacto>(this.contactoURL + `buscar/${id}`);
   }
 
   public crear(contacto: Contacto): Observable<any> {
-    return this.httpClient.post<any>(`${this.contactoURL}` + 'crear', contacto);
+    return this.httpClient.post<any>(this.contactoURL + 'crear', contacto);
   }
 
   public editar(id: number, contacto: Contacto): Observable<any> {
-    return this.httpClient.put<any>(`${this.contactoURL}` + `editar/${id}`, contacto);
+    return this.httpClient.put<any>(this.contactoURL + `editar/${id}`, contacto);
   }
 
   public borrar(id: number): Observable<any> {
-    return this.httpClient.delete<any>(`${this.contactoURL}` + `borrar/${id}`);
+    return this.httpClient.delete<any>(this.contactoURL + `borrar/${id}`);
   }
 
 }

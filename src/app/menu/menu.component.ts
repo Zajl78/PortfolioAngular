@@ -12,10 +12,7 @@ export class MenuComponent implements OnInit {
 
   isLogged = false;
   
- /* 
-  isLoginFail = false;
-  roles: string[]=[];
- */
+ 
   constructor(private tokenService: TokenService,
     private autenticacionService: AutenticacionService,
     private router: Router) { }

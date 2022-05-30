@@ -37,15 +37,15 @@ export class VerExperienciaLaboralComponent implements OnInit {
     this.datosPortfolio.obtenerDatos().subscribe(data => {
       this.experienciaLaboral = data;
       console.log("experienciaLaboral" + JSON.stringify(data));
-      
+
     });
   }
 
   borrar(id: number) {
 
     /* alert('borrar el ' + id); */
-      
-      this.datosPortfolio.borrar(id).subscribe(data => {
+
+    this.datosPortfolio.borrar(id).subscribe(data => {
       this.toastr.success('Experiencia Laboral Eliminada', 'Ok', {
         timeOut: 3000, positionClass: 'toast-top-center'
       });
@@ -59,7 +59,7 @@ export class VerExperienciaLaboralComponent implements OnInit {
       }
 
     );
- 
+
   }
 }
 

@@ -8,31 +8,33 @@ import { Habilidades } from '../models/habilidades';
 })
 export class HabilidadesService {
 
-  habilidadesURL = 'http://localhost:8080/persona/habilidades/';
+  /* habilidadesURL = 'https://damp-island-31662.herokuapp.com/persona/habilidades/'; 
+  habilidadesURL = 'http://localhost:8080/persona/habilidades/';*/
+  habilidadesURL = '/api/persona/habilidades/';
 
   constructor(private httpClient: HttpClient) { }
 
   public obtenerDatos(): Observable<Habilidades[]> {
-    return this.httpClient.get<Habilidades[]>(`${this.habilidadesURL}` + 'traer');
+    return this.httpClient.get<Habilidades[]>(this.habilidadesURL + 'traer');
   }
 
   public detalles(id: number): Observable<Habilidades> {
-    return this.httpClient.get<Habilidades>(`${this.habilidadesURL}` + `detalle/${id}`);
+    return this.httpClient.get<Habilidades>(this.habilidadesURL + `detalle/${id}`);
   }
 
   public buscar(id: number): Observable<Habilidades> {
-    return this.httpClient.get<Habilidades>(`${this.habilidadesURL}`+ `buscar/${id}`);
+    return this.httpClient.get<Habilidades>(this.habilidadesURL + `buscar/${id}`);
   }
 
   public crear(habilidades: Habilidades): Observable<any> {
-    return this.httpClient.post<any>(`${this.habilidadesURL}` + 'crear', habilidades);
+    return this.httpClient.post<any>(this.habilidadesURL + 'crear', habilidades);
   }
 
   public editar(id: number, habilidades: Habilidades): Observable<any> {
-    return this.httpClient.put<any>(`${this.habilidadesURL}` + `editar/${id}`, habilidades);
+    return this.httpClient.put<any>(this.habilidadesURL + `editar/${id}`, habilidades);
   }
 
   public borrar(id: number): Observable<any> {
-    return this.httpClient.delete<any>(`${this.habilidadesURL}` + `borrar/${id}`);
+    return this.httpClient.delete<any>(this.habilidadesURL + `borrar/${id}`);
   }
 }

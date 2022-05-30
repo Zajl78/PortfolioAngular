@@ -14,11 +14,11 @@ import { TokenService } from '../servicios/token.service';
 })
 export class EditarFormacionComponent implements OnInit {
 
-  form:FormGroup;
+  form: FormGroup;
   formacion: any;
   isLogged = false;
   isLoginFail = false;
-  roles: string[]=[];
+  roles: string[] = [];
 
   constructor(private formacionService: FormacionService,
     private autenticacionService: AutenticacionService,
@@ -28,20 +28,20 @@ export class EditarFormacionComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-      this.form = this.formBuilder.group(
-        {
-          logo: ['', Validators.required],
-          tipo: ['', Validators.required],
-          titulo: ['', Validators.required],
-          institucion: ['', Validators.required],
-          lugar: ['',Validators.required],
-          desde: ['', Validators.required],
-          hasta: ['', Validators.required],
-          observacion: ['', Validators.required]
-      
+    this.form = this.formBuilder.group(
+      {
+        logo: ['', Validators.required],
+        tipo: ['', Validators.required],
+        titulo: ['', Validators.required],
+        institucion: ['', Validators.required],
+        lugar: ['', Validators.required],
+        desde: ['', Validators.required],
+        hasta: ['', Validators.required],
+        observacion: ['', Validators.required]
+
       })
 
-     }
+  }
 
   ngOnInit(): void {
 
@@ -55,81 +55,84 @@ export class EditarFormacionComponent implements OnInit {
 
     this.formacionService.detalles(id).subscribe(
       data => {
-      
-      this.formacion=data;
+
+        this.formacion = data;
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
-        
-            
-           
-        }  
-        );
-      
-        
-      }  
+        this.router.navigate(['/editar-formacion']);
 
-  get Tipo(){
+
+
+      }
+    );
+
+
+  }
+
+  get Tipo() {
 
     return this.form.get('tipo');
   }
-  get Institucion(){
+  get Institucion() {
 
     return this.form.get('institucion');
   }
-  get Lugar(){
+  get Lugar() {
 
     return this.form.get('lugar');
   }
-  get Desde(){
+  get Desde() {
 
     return this.form.get('desde');
   }
-  get Hasta(){
+  get Hasta() {
 
     return this.form.get('hasta');
   }
-  get Logo(){
+  get Logo() {
 
     return this.form.get('logo');
   }
-  get Observacion(){
+  get Observacion() {
 
     return this.form.get('observacion');
   }
-  get Titulo(){
+  get Titulo() {
 
     return this.form.get('titulo');
   }
 
   onUpdate(event: Event): void {
     event.preventDefault;
-  
+
     const id = this.activatedRoute.snapshot.params['id'];
-  
-    this.formacionService.editar(id, this.form.value).subscribe (data => { 
-  
-    this.isLogged=true;
-    this.isLoginFail=false;
-    console.log("DATA: " + JSON.stringify(data));
-  
-    this.toastr.success('Formación actualizada', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-  });
-   this.router.navigate(['/portfolio']);
-  },
-  err => {
-  this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-  });
-  this.router.navigate(['/']);
-  
-      
-     
-  }  
-  );
-  
+
+    this.formacionService.editar(id, this.form.value).subscribe(data => {
+
+      this.isLogged = true;
+      this.isLoginFail = false;
+      console.log("DATA: " + JSON.stringify(data));
+
+      this.toastr.success('Formación actualizada', 'Ok', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/portfolio']);
+    },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/editar-formacion']);
+
+
+
+      }
+    );
+
   }
-  
-  }
+
+}
 

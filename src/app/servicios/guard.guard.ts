@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { AutenticacionService } from './autenticacion.service';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuardGuard implements CanActivate {
 
-constructor (private autenticacionService: AutenticacionService, private router: Router){
+  /* constructor (private autenticacionService: AutenticacionService, private router: Router){
 
 }
-  canActivate(
+canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean  {
     
@@ -27,9 +28,9 @@ constructor (private autenticacionService: AutenticacionService, private router:
   return false;
   }
 }
-} 
+}  */
 
-/* realRol: string;
+realRol: string;
 
   constructor(private tokenService: TokenService,
     private router: Router
@@ -53,7 +54,7 @@ constructor (private autenticacionService: AutenticacionService, private router:
 
     return true;
   } 
-} */
+}
 
 
 

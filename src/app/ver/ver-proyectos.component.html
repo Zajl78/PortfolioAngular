@@ -1,62 +1,77 @@
 <!--Proyectos-->
-<div class="card border-primary mb-2">
-    <div class="card-titles" >
+<div class="cardT border-info rounded-pill mb-2">
+    <div class="card-titles">
         <div class="row" id="flush-headingProy1">
-            <div class="col-11">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseProy1" aria-expanded="false" aria-controls="flush-collapseProy1">
-                <h2>Proyectos</h2></button>
+            <div class="col-10 offset-1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseProy1" aria-expanded="false" aria-controls="flush-collapseProy1">
+                    <h2>Proyectos</h2>
+                </button>
             </div>
             <div class="col-1">
                 <div class="btn-edit" *ngIf="isAdmin">
-                <a routerLink="/nuevo-proyecto"  class="btn-right"><i class="fa-solid fa-circle-plus"></i></a>
+                    <a routerLink="/nuevo-proyectos" class="btn-right"><i class="fa-solid fa-circle-plus"></i></a>
                 </div>
             </div>
         </div>
     </div>
     <div>
-        <div id="flush-collapseProy1" class="accordion-collapse collapse" aria-labelledby="flush-headingProy1" data-bs-parent="#accordionFlushProyecto">
+        <div id="flush-collapseProy1" class="accordion-collapse collapse" aria-labelledby="flush-headingProy1"
+            data-bs-parent="#accordionFlushProyecto">
             <div class="accordion-body">
                 <ul style="list-style-type: none" class="items-list">
-                <li *ngFor="let proyecto of proyectos">
-                    <div class="data-container">
-                        <div class="list-info">
-                            <div class="row">
-                                <div class="col-3">
-                                <h3>{{proyecto.proyecto}}</h3>
-                                <p><time>{{proyecto.fecha}}</time></p>
-                                </div>
-                                <div class="col-7">
-                                    <div class="descripcion">
-                                        <p>{{proyecto.descripcion}}</p>
+                    <li *ngFor="let proyecto of proyectos">
+                        <div class="data-container">
+                            <div class="list-info">
+                                <div class="row">
+                                    <div class="col-1 offset-1">
+                                        <img id="proy" [src]="proyecto.imagen"
+                                            alt="inagen portfolio web" />
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row"> 
-                                        
-                                        <div class="col-1">
-                                            <div class="data-control">
-                                                <div class="btn-edit" *ngIf="isAdmin">
-                                                    <a routerLink="/editar-proyectos/{{proyecto.id}}" class="btn-right"><i class="fa-regular fa-pen-to-square"></i></a>
-                                                    </div>
-                                            </div>
+                                    <div class="col-3" >
+                                        <h3><b>{{proyecto.proyecto}}</b></h3>
+                                        <p><time>{{proyecto.fecha}}</time></p>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="descripcion">
+                                            <p>{{proyecto.descripcion}}</p>
                                         </div>
-                                        
-                                        <div class="col-1" >
-                                            <div class="data-control">
-                                                <div class="btn-edit" *ngIf="isAdmin">
-                                                    <a class="btn-right" (click)="borrar(proyecto.id)"><i class="fa-regular fa-trash-can"></i></a>
+                                        <div class="link">
+                                            <div class="btn-edit" *ngIf="isAdmin">
+                                                <a [href]="proyecto.link" class="btn-link">{{proyecto.link}}</a>
+                                            </div>
+                                                
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+
+                                            <div class="col-1">
+                                                <div class="data-control">
+                                                    <div class="btn-edit" *ngIf="isAdmin">
+                                                        <a routerLink="/editar-proyectos/{{proyecto.id}}"
+                                                            class="btn-right"><i
+                                                                class="fa-regular fa-pen-to-square"></i></a>
                                                     </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <div class="data-control">
+                                                    <div class="btn-edit" *ngIf="isAdmin">
+                                                        <a class="btn-right" (click)="borrar(proyecto.id)"><i
+                                                                class="fa-regular fa-trash-can"></i></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-

@@ -16,7 +16,7 @@ export class VerIdiomasComponent implements OnInit {
   roles: string[];
   isAdmin = false;
 
-  constructor(private datosPortfolio:IdiomasService,
+  constructor(private datosPortfolio: IdiomasService,
     private toastr: ToastrService,
     private router: Router,
     private tokenService: TokenService) { }
@@ -25,29 +25,29 @@ export class VerIdiomasComponent implements OnInit {
     this.cargarIdiomas();
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach(rol => {
-      if(rol === 'ROLE_ADMIN'){
+      if (rol === 'ROLE_ADMIN') {
         this.isAdmin = true;
       }
     });
-    
+
   }
 
-    cargarIdiomas():void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+  cargarIdiomas(): void {
+    this.datosPortfolio.obtenerDatos().subscribe(data => {
       console.log("idiomas" + JSON.stringify(data));
-      this.idiomas=data;
+      this.idiomas = data;
     });
-      
-  
-  
+
+
+
   }
 
   borrar(id: number) {
 
     /* alert('borrar el ' + id); */
-      
-      this.datosPortfolio.borrar(id).subscribe(data => {
-      this.toastr.success('Experiencia Laboral Eliminada', 'Ok', {
+
+    this.datosPortfolio.borrar(id).subscribe(data => {
+      this.toastr.success('Idioma eliminado', 'Ok', {
         timeOut: 3000, positionClass: 'toast-top-center'
       });
       this.cargarIdiomas();
@@ -60,7 +60,7 @@ export class VerIdiomasComponent implements OnInit {
       }
 
     );
- 
+
   }
 
 }

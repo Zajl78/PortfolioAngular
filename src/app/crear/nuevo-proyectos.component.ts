@@ -14,10 +14,10 @@ import { TokenService } from '../servicios/token.service';
 export class NuevoProyectosComponent implements OnInit {
 
 
-  form:FormGroup;
+  form: FormGroup;
   isLoggedIn = false;
   isLoginFail = false;
-  roles: string[]=[];
+  roles: string[] = [];
 
   constructor(private proyectosService: ProyectosService,
     private autenticacionService: AutenticacionService,
@@ -26,15 +26,17 @@ export class NuevoProyectosComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router) {
 
-      this.form = this.formBuilder.group(
-        {
-          proyecto: ['', Validators.required],
-          descripcion: ['', Validators.required],
-          fecha: ['', Validators.required]
-      
+    this.form = this.formBuilder.group(
+      {
+        proyecto: ['', Validators.required],
+        descripcion: ['', Validators.required],
+        fecha: ['', Validators.required],
+        imagen: ['', Validators.required],
+        link: ['', Validators.required]
+
       })
 
-     }
+  }
 
   ngOnInit(): void {
 
@@ -46,43 +48,53 @@ export class NuevoProyectosComponent implements OnInit {
 
   }
 
-  get Proyecto(){
+  get Proyecto() {
 
     return this.form.get('proyecto');
   }
-  get Descripcion(){
+  get Descripcion() {
 
     return this.form.get('descripcion');
   }
-  get Fecha(){
+  get Fecha() {
 
     return this.form.get('fecha');
   }
-  
-  onCreate(event: Event): void {
-      event.preventDefault;
+  get Imagen() {
 
-     
-      this.proyectosService.crear(this.form.value).subscribe (data => { 
-    
-      this.isLoggedIn=true;
-      this.isLoginFail=false;
+    return this.form.get('imagen');
+  }
+  get Link() {
+
+    return this.form.get('link');
+  }
+
+  onCreate(event: Event): void {
+    event.preventDefault;
+
+
+    this.proyectosService.crear(this.form.value).subscribe(data => {
+
+      this.isLoggedIn = true;
+      this.isLoginFail = false;
       console.log("DATA: " + JSON.stringify(data));
 
-      this.toastr.success('Proyecto creado', 'Ok', {timeOut: 3000, positionClass: 'toast-top-center'
-   });
-     this.router.navigate(['/portfolio']);
-   },
-   err => {
-    this.toastr.error(err.error.mensaje, 'Fail', {timeOut: 3000, positionClass: 'toast-top-center'
-    });
-    this.router.navigate(['/']);
-  
-        
-       
-}  
-);
+      this.toastr.success('Proyecto creado', 'Ok', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/portfolio']);
+    },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        this.router.navigate(['/nuevo-proyectos']);
 
+
+
+      }
+    );
+
+  }
 }
-} 
 
