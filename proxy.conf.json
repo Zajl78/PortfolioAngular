@@ -1,6 +1,6 @@
 {
     "/api/*": {
-    "target": "http://localhost:8080",
+    "target": "https://damp-island-31662.herokuapp.com",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

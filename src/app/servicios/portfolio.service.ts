@@ -9,7 +9,7 @@ export class PortfolioService {
 
   /* url: String = 'https://damp-island-31662.herokuapp.com/';
   url: String = 'http://localhost:8080/'; */
-  url: String = '/api/';
+  url: String = ' https://damp-island-31662.herokuapp.com/api/';
 
   constructor(private http: HttpClient) {
 

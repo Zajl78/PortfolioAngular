@@ -10,7 +10,7 @@ export class PerfilService {
 
   /* perfilURL = 'https://damp-island-31662.herokuapp.com/persona/'; 
   perfilURL = 'http://localhost:8080/persona/';*/
-  perfilURL = '/api/persona/';
+  perfilURL = ' https://damp-island-31662.herokuapp.com/api/persona/';
 
   constructor(private httpClient: HttpClient) { }
 

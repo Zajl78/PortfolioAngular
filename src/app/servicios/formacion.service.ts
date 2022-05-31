@@ -10,7 +10,7 @@ export class FormacionService {
 
  /*  formacionURL = 'https://damp-island-31662.herokuapp.com/persona/formacion/'; 
   formacionURL = 'http://localhost:8080/persona/formacion/';*/
-  formacionURL = '/api/persona/formacion/';
+  formacionURL = ' https://damp-island-31662.herokuapp.com/api/persona/formacion/';
 
   constructor(private httpClient: HttpClient) { }
 

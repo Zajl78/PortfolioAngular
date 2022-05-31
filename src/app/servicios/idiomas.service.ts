@@ -10,7 +10,7 @@ export class IdiomasService {
 
  /*  idiomasURL = 'https://damp-island-31662.herokuapp.com/persona/idiomas/';
   idiomasURL = 'http://localhost:8080/persona/idiomas/'; */
-  idiomasURL = '/api/persona/idiomas/';
+  idiomasURL = ' https://damp-island-31662.herokuapp.com/api/persona/idiomas/';
 
   constructor(private httpClient: HttpClient) { }
 

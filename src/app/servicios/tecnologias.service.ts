@@ -10,7 +10,7 @@ export class TecnologiasService {
 
   /* tecnologiasURL = 'https://damp-island-31662.herokuapp.com/persona/tecnologias/'; 
   tecnologiasURL = 'http://localhost:8080/api/persona/tecnologias/';*/
-  tecnologiasURL = '/api/persona/tecnologias/';
+  tecnologiasURL = ' https://damp-island-31662.herokuapp.com/api/persona/tecnologias/';
 
   constructor(private httpClient: HttpClient) { }
 

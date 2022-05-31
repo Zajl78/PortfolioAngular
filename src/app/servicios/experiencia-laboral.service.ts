@@ -10,7 +10,7 @@ export class ExperienciaLaboralService {
 
   /* experienciaLaboralURL = 'https://damp-island-31662.herokuapp.com/persona/experienciaLaboral/';
   experienciaLaboralURL = 'http://localhost:8080/persona/experienciaLaboral/'; */
-  experienciaLaboralURL = '/api/persona/experienciaLaboral/';
+  experienciaLaboralURL = ' https://damp-island-31662.herokuapp.com/api/persona/experienciaLaboral/';
 
   constructor(private httpClient: HttpClient) { }
 
