@@ -10,7 +10,7 @@ export class ProyectosService {
 
   /* proyectosURL = 'https://damp-island-31662.herokuapp.com/persona/proyectos/'; 
   proyectosURL = 'http://localhost:8080/persona/proyectos/';*/
-  proyectosURL = ' https://damp-island-31662.herokuapp.com/api/persona/proyectos/';
+  proyectosURL = 'https://damp-island-31662.herokuapp.com/api/persona/proyectos/';
 
   constructor(private httpClient: HttpClient) { }
 

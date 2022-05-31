@@ -10,7 +10,7 @@ export class HabilidadesService {
 
   /* habilidadesURL = 'https://damp-island-31662.herokuapp.com/persona/habilidades/'; 
   habilidadesURL = 'http://localhost:8080/persona/habilidades/';*/
-  habilidadesURL = ' https://damp-island-31662.herokuapp.com/api/persona/habilidades/';
+  habilidadesURL = 'https://damp-island-31662.herokuapp.com/api/persona/habilidades/';
 
   constructor(private httpClient: HttpClient) { }
 

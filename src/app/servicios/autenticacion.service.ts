@@ -11,7 +11,7 @@ import { IniciarSesion } from '../models/iniciar-sesion';
 })
 export class AutenticacionService {
  /*  authURL='http://localhost:8080/api/auth/'; */
-  authURL=' https://damp-island-31662.herokuapp.com/api/auth/';
+  authURL='https://damp-island-31662.herokuapp.com/api/auth/';
 
   currentUserSubject:BehaviorSubject<any>
 

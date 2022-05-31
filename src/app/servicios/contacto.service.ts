@@ -9,7 +9,7 @@ import { Contacto } from '../models/contacto';
 export class ContactoService {
   
   /* contactoURL = 'http://localhost:8080/persona/contacto/'; */
-  contactoURL = ' https://damp-island-31662.herokuapp.com/api/persona/contacto/';
+  contactoURL = 'https://damp-island-31662.herokuapp.com/api/persona/contacto/';
 
   constructor(private httpClient: HttpClient) { }
 
